@@ -82,7 +82,7 @@ fi
 # Устанавливаем задачу в cron, если её еще нет
 if ! grep -q "update_router_hosts.sh" /etc/crontabs/root 2>/dev/null; then
     echo "Устанавливаем автообновление в cron (каждый день в 05:00)..."
-    echo "0 5 * * * /bin/sh /etc/update_router_hosts.sh >/dev/null 2>&1" >> /etc/crontabs/root
+    echo "0 5 * * * /bin/sh /etc/update_router_hosts.sh 2>&1 | logger -t sni-proxy" >> /etc/crontabs/root
     /etc/init.d/cron restart
 fi
 
