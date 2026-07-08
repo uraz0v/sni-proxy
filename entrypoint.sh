@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Копируем наш конфиг Nginx
+cp /etc/nginx/nginx.conf.template /etc/nginx/nginx.conf
+
 # Создание конфигураций whitelist на основе списков
 echo "" > /etc/nginx/whitelist_domains.conf
 echo "" > /etc/nginx/banned_ips.conf
