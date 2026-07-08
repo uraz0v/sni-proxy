@@ -1,0 +1,61 @@
+AMD
+Autodesk
+Badoo
+Broadcom
+Canva
+ChatGPT (OpenAI)
+Chess
+Claude
+DeepL
+Deezer
+Dell
+Dyson
+ElevenLabs
+Elgato
+Fitbit
+FMHY
+Framer
+GitHub Copilot
+Google AI
+Grok
+Guidedhacking
+Guilded
+Imgur
+Intel
+JetBrains
+Last.fm
+Linear.app
+Make
+Manus
+Meta AI
+Microsoft (Copilot, Designer, Xbox)
+Naukri
+Notion
+Nvidia
+Oracle
+Patreon
+Posthog
+Pump.fun
+Reve
+Qwant
+SketchUp
+Spotify
+Strava
+Supercell
+Tableau
+Tailscale
+TeamViewer
+Tidal
+Trae.ai
+Tria.ge
+Truth Social
+Tuta
+Twitch
+Weather.com
+Weather Underground
+Web Archive
+Windsurf
+WorkOS
+Xerox
+Остальное
+Решение от Flowseal для стабильной работы голосовых серверов в Discord:
