@@ -1,8 +1,9 @@
 #!/bin/bash
 cd "$(dirname "$0")" || exit
 
-# В этой переменной через запятую перечислите нужные сервисы из GeoHideDNS
-SERVICES_TO_PROXY="ChatGPT (OpenAI),Claude,Google AI,GitHub Copilot,Canva,Notion,Docker,Spotify"
+# Если вы хотите проксировать ВСЕ доступные геоблоки, напишите "ALL"
+# Если хотите только конкретные, перечислите их через запятую (например: "ChatGPT (OpenAI),Claude,Spotify")
+SERVICES_TO_PROXY="ALL"
 
 mkdir -p lists
 # Очищаем старые списки, так как теперь мы всё контролируем сами
@@ -12,6 +13,13 @@ touch lists/banned_ips.txt
 
 # 1. Качаем файл GeoHideDNS
 curl -sL https://raw.githubusercontent.com/Internet-Helper/GeoHideDNS/main/hosts/hosts > geohide.tmp
+
+# Генерируем шпаргалку для пользователя (список всех доступных сервисов)
+awk '/^# / && !/(Последнее|Домены|http|[0-9]+\.[0-9]+|В итоговом|Работающие|Только эти|Остальное|Решение)/ {print substr($0, 3)}' geohide.tmp > lists/available_services.txt
+
+if [ "$SERVICES_TO_PROXY" = "ALL" ]; then
+    SERVICES_TO_PROXY=$(paste -sd "," lists/available_services.txt)
+fi
 
 # 2. Вырезаем только нужные сервисы с заголовками и без дубликатов
 awk -v wanted="$SERVICES_TO_PROXY" '

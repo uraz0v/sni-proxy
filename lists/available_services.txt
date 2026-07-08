@@ -57,5 +57,3 @@ Web Archive
 Windsurf
 WorkOS
 Xerox
-Остальное
-Решение от Flowseal для стабильной работы голосовых серверов в Discord:
