@@ -6,9 +6,8 @@ cd "$(dirname "$0")" || exit
 SERVICES_TO_PROXY="ALL"
 
 mkdir -p lists
-# Очищаем старые списки, так как теперь мы всё контролируем сами
+# Очищаем старые списки
 echo "" > lists/domains.txt
-echo "" > lists/domains_with_subdomains.txt
 touch lists/banned_ips.txt
 
 # 1. Качаем файл GeoHideDNS
@@ -44,8 +43,8 @@ extract && /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/ && $1 != "0.0.0.0" {
 }
 ' geohide.tmp > filtered_services_with_headers.tmp
 
-# 3. Сохраняем эти домены для Nginx (в custom.txt), убирая пустые строки и комментарии
-awk '!/^#/ && !/^$/ {print $0}' filtered_services_with_headers.tmp > lists/custom.txt
+# 3. Сохраняем эти домены для Nginx (в domains.txt), убирая пустые строки и комментарии
+awk '!/^#/ && !/^$/ {print $0}' filtered_services_with_headers.tmp > lists/domains.txt
 
 # 4. Качаем файл от dns.malw.link чисто ради блокировки рекламы (0.0.0.0)
 curl -sL https://raw.githubusercontent.com/ImMALWARE/dns.malw.link/master/hosts > malw.tmp
@@ -70,7 +69,7 @@ awk '{
 
 # 6. Добавляем системные домены для работы роутера и GitHub
 for gh_domain in "raw.githubusercontent.com" "release-assets.githubusercontent.com" "private-user-images.githubusercontent.com" "gist.githubusercontent.com" "avatars.githubusercontent.com"; do
-  echo "$gh_domain" >> lists/custom.txt
+  echo "$gh_domain" >> lists/domains.txt
   echo "YOUR_VPS_IP $gh_domain" >> mega_hosts_template.txt
 done
 
