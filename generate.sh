@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /Users/uragan/gemini/sni-proxy-deploy
+cd "$(dirname "$0")" || exit
 
 # В этой переменной через запятую перечислите нужные сервисы из GeoHideDNS
 SERVICES_TO_PROXY="ChatGPT (OpenAI),Claude,Google AI,GitHub Copilot,Canva,Notion,Docker,Spotify"
@@ -45,7 +45,3 @@ done
 # Чистим временные файлы
 rm *.tmp
 
-# Отправляем в GitHub
-git add .
-git commit -m "feat: Modular services selection + Adblock retention"
-GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new" git push
