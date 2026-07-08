@@ -1,16 +1,12 @@
 #!/bin/bash
 echo "Installing Docker if not present..."
-docker compose version || docker-compose version || (curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh)
+docker compose version || (curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh)
 
 echo "Updating lists..."
 bash update_lists.sh
 
 echo "Deploying SNI Proxy..."
-if docker compose version >/dev/null 2>&1; then
-    docker compose up -d
-else
-    docker-compose up -d
-fi
+docker compose up -d --force-recreate
 echo "✅ SNI Proxy successfully deployed and running on port 443!"
 
 echo "Setting up auto-update cron job on VPS..."
