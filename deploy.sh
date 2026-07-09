@@ -1,4 +1,8 @@
 #!/bin/bash
+
+echo "Setting system timezone to Asia/Yekaterinburg..."
+timedatectl set-timezone Asia/Yekaterinburg || echo "Failed to set timezone. Ignoring."
+
 echo "Installing Docker if not present..."
 docker compose version || (curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh)
 
