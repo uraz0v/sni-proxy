@@ -30880,6 +30880,7 @@ YOUR_VPS_IP xerox.com
 YOUR_VPS_IP www.xerox.com
 YOUR_VPS_IP raw.githubusercontent.com
 YOUR_VPS_IP release-assets.githubusercontent.com
+YOUR_VPS_IP objects.githubusercontent.com
 YOUR_VPS_IP private-user-images.githubusercontent.com
 YOUR_VPS_IP gist.githubusercontent.com
 YOUR_VPS_IP avatars.githubusercontent.com

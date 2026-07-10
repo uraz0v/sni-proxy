@@ -68,7 +68,7 @@ awk '{
 
 
 # 6. Добавляем системные домены для работы роутера и GitHub
-for gh_domain in "raw.githubusercontent.com" "release-assets.githubusercontent.com" "private-user-images.githubusercontent.com" "gist.githubusercontent.com" "avatars.githubusercontent.com"; do
+for gh_domain in "raw.githubusercontent.com" "release-assets.githubusercontent.com" "objects.githubusercontent.com" "private-user-images.githubusercontent.com" "gist.githubusercontent.com" "avatars.githubusercontent.com"; do
   echo "$gh_domain" >> lists/domains.txt
   echo "YOUR_VPS_IP $gh_domain" >> mega_hosts_template.txt
 done
