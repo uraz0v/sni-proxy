@@ -900,3 +900,5 @@ gist.githubusercontent.com
 avatars.githubusercontent.com
 alkali.googleapis.com
 cloudaicompanion.googleapis.com
+aida.googleapis.com
+studiobot.googleapis.com
