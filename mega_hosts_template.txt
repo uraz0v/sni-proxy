@@ -30889,3 +30889,4 @@ YOUR_VPS_IP avatars.githubusercontent.com
 # ПОЛЬЗОВАТЕЛЬСКИЕ ДОМЕНЫ
 # ==============================
 YOUR_VPS_IP alkali.googleapis.com
+YOUR_VPS_IP cloudaicompanion.googleapis.com

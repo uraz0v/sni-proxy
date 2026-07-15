@@ -899,3 +899,4 @@ private-user-images.githubusercontent.com
 gist.githubusercontent.com
 avatars.githubusercontent.com
 alkali.googleapis.com
+cloudaicompanion.googleapis.com
