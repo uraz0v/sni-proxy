@@ -30884,3 +30884,8 @@ YOUR_VPS_IP objects.githubusercontent.com
 YOUR_VPS_IP private-user-images.githubusercontent.com
 YOUR_VPS_IP gist.githubusercontent.com
 YOUR_VPS_IP avatars.githubusercontent.com
+
+# ==============================
+# ПОЛЬЗОВАТЕЛЬСКИЕ ДОМЕНЫ
+# ==============================
+YOUR_VPS_IP alkali.googleapis.com

@@ -69,8 +69,11 @@ awk '{
 
 # 6. Добавляем системные домены для работы роутера и GitHub
 for gh_domain in "raw.githubusercontent.com" "release-assets.githubusercontent.com" "objects.githubusercontent.com" "private-user-images.githubusercontent.com" "gist.githubusercontent.com" "avatars.githubusercontent.com"; do
-  echo "$gh_domain" >> lists/domains.txt
-  echo "YOUR_VPS_IP $gh_domain" >> mega_hosts_template.txt
+  # Проверяем, есть ли уже этот домен в файле
+  if ! grep -q "^${gh_domain}$" lists/domains.txt; then
+      echo "$gh_domain" >> lists/domains.txt
+      echo "YOUR_VPS_IP $gh_domain" >> mega_hosts_template.txt
+  fi
 done
 
 # 7. Добавляем пользовательские домены (Android Studio Gemini и т.д.)
@@ -81,8 +84,10 @@ if [ -f "lists/custom_domains.txt" ]; then
     echo "# ==============================" >> mega_hosts_template.txt
     
     awk '!/^#/ && !/^$/ {print $1}' lists/custom_domains.txt | while read -r custom_domain; do
-        echo "$custom_domain" >> lists/domains.txt
-        echo "YOUR_VPS_IP $custom_domain" >> mega_hosts_template.txt
+        if ! grep -q "^${custom_domain}$" lists/domains.txt; then
+            echo "$custom_domain" >> lists/domains.txt
+            echo "YOUR_VPS_IP $custom_domain" >> mega_hosts_template.txt
+        fi
     done
 fi
 
