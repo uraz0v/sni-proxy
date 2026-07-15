@@ -1,0 +1,12 @@
+# Файл для ваших личных доменов (например, для Android Studio Gemini)
+# Добавляйте по одному домену на строку.
+# Пустые строки и строки, начинающиеся с #, игнорируются.
+
+# Android Studio Gemini (Studio Bot) & Google AI endpoints
+alkali.googleapis.com
+generativelanguage.googleapis.com
+aistudio.google.com
+ai.google.dev
+gemini.google.com
+
+# Если нужно, добавляйте свои ниже:

@@ -73,6 +73,19 @@ for gh_domain in "raw.githubusercontent.com" "release-assets.githubusercontent.c
   echo "YOUR_VPS_IP $gh_domain" >> mega_hosts_template.txt
 done
 
+# 7. Добавляем пользовательские домены (Android Studio Gemini и т.д.)
+if [ -f "lists/custom_domains.txt" ]; then
+    echo "" >> mega_hosts_template.txt
+    echo "# ==============================" >> mega_hosts_template.txt
+    echo "# ПОЛЬЗОВАТЕЛЬСКИЕ ДОМЕНЫ" >> mega_hosts_template.txt
+    echo "# ==============================" >> mega_hosts_template.txt
+    
+    awk '!/^#/ && !/^$/ {print $1}' lists/custom_domains.txt | while read -r custom_domain; do
+        echo "$custom_domain" >> lists/domains.txt
+        echo "YOUR_VPS_IP $custom_domain" >> mega_hosts_template.txt
+    done
+fi
+
 # Чистим временные файлы
 rm *.tmp
 
