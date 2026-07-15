@@ -11,5 +11,7 @@ gemini.google.com
 cloudaicompanion.googleapis.com
 aida.googleapis.com
 studiobot.googleapis.com
+aicode.googleapis.com
+ai.googleapis.com
 
 # Если нужно, добавляйте свои ниже:

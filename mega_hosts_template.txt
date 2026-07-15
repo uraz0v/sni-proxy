@@ -30892,3 +30892,5 @@ YOUR_VPS_IP alkali.googleapis.com
 YOUR_VPS_IP cloudaicompanion.googleapis.com
 YOUR_VPS_IP aida.googleapis.com
 YOUR_VPS_IP studiobot.googleapis.com
+YOUR_VPS_IP aicode.googleapis.com
+YOUR_VPS_IP ai.googleapis.com
