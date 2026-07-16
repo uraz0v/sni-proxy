@@ -904,3 +904,5 @@ aida.googleapis.com
 studiobot.googleapis.com
 aicode.googleapis.com
 ai.googleapis.com
+cloudcode-pa.googleapis.com
+aiplatform.googleapis.com

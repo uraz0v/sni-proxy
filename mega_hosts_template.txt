@@ -30894,3 +30894,5 @@ YOUR_VPS_IP aida.googleapis.com
 YOUR_VPS_IP studiobot.googleapis.com
 YOUR_VPS_IP aicode.googleapis.com
 YOUR_VPS_IP ai.googleapis.com
+YOUR_VPS_IP cloudcode-pa.googleapis.com
+YOUR_VPS_IP aiplatform.googleapis.com

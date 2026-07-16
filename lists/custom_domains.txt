@@ -13,5 +13,9 @@ aida.googleapis.com
 studiobot.googleapis.com
 aicode.googleapis.com
 ai.googleapis.com
+cloudcode-pa.googleapis.com
+daily-cloudcode-pa.googleapis.com
+proactivebackend-pa.googleapis.com
+aiplatform.googleapis.com
 
 # Если нужно, добавляйте свои ниже:
