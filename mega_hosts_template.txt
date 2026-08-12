@@ -29399,3 +29399,5 @@ YOUR_VPS_IP cloudcode-pa.googleapis.com
 YOUR_VPS_IP aiplatform.googleapis.com
 YOUR_VPS_IP arduino.cc
 YOUR_VPS_IP downloads.arduino.cc
+YOUR_VPS_IP api.arduino.cc
+YOUR_VPS_IP builder.arduino.cc

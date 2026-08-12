@@ -19,5 +19,7 @@ proactivebackend-pa.googleapis.com
 aiplatform.googleapis.com
 arduino.cc
 downloads.arduino.cc
+api.arduino.cc
+builder.arduino.cc
 
 # Если нужно, добавляйте свои ниже:
