@@ -21,5 +21,10 @@ arduino.cc
 downloads.arduino.cc
 api.arduino.cc
 builder.arduino.cc
+create.arduino.cc
+cloud.arduino.cc
+api2.arduino.cc
+iot.arduino.cc
+auth.arduino.cc
 
 # Если нужно, добавляйте свои ниже:

@@ -29401,3 +29401,8 @@ YOUR_VPS_IP arduino.cc
 YOUR_VPS_IP downloads.arduino.cc
 YOUR_VPS_IP api.arduino.cc
 YOUR_VPS_IP builder.arduino.cc
+YOUR_VPS_IP create.arduino.cc
+YOUR_VPS_IP cloud.arduino.cc
+YOUR_VPS_IP api2.arduino.cc
+YOUR_VPS_IP iot.arduino.cc
+YOUR_VPS_IP auth.arduino.cc
