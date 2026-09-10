@@ -1,51 +1,92 @@
+Регион серверов: RU
+Эти IP-адреса принадлежат GeoHide DNS:
+Остальные IP-адреса принадлежат сторонним сервисам.
+37Signals
+Aave
+Adobe
+Affinity Studio
+Analog
 AMD
+Arkoselabs
+Arduino
+Arrow
+Atlassian
+Avast
 Autodesk
 Badoo
+Bestbuy
+Brave
 Broadcom
+Bike24
 Canva
+Camel
+Capcut
+Cerebras
+Chaos
 ChatGPT (OpenAI)
 Chess
 Claude
+Clickup
+Coreweave
+Corsair
+Crunchyroll
+Cummins
+Cursor AI
 DeepL
 Deezer
 Dell
+Dola
+Digikey
 Dyson
 ElevenLabs
 Elgato
 Fitbit
 FMHY
+Formula1
 Framer
-GitHub Copilot
+Game8
+Genspark AI
 Google AI
 Grok
 Guidedhacking
 Guilded
+Hume AI
+Ikea
 Imgur
 Intel
 JetBrains
+Kaleido AI
 Last.fm
+Lego
 Linear.app
 Make
+Makita
 Manus
 Meta AI
+Microchip
 Microsoft (Copilot, Designer, Xbox)
+Modivo
+Monica
+Mongodb
 Naukri
 Notion
 Nvidia
+OpenCode AI
+OpenRouter AI
 Oracle
-Patreon
 Posthog
 Pump.fun
 Reve
 Qwant
+Scribd
 SketchUp
 Spotify
 Strava
+Stumble Guys
 Supercell
 Tableau
 Tailscale
 TeamViewer
-Tidal
 Trae.ai
 Tria.ge
 Truth Social
@@ -55,5 +96,7 @@ Weather.com
 Weather Underground
 Web Archive
 Windsurf
+Wix
 WorkOS
 Xerox
+ZeroSSL

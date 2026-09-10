@@ -26584,21 +26584,100 @@
 # ПРОКСИРОВАНИЕ СЕРВИСОВ (GeoHide)
 # ==============================
 
+# Регион серверов: RU
+
+# Эти IP-адреса принадлежат GeoHide DNS:
+
+# Остальные IP-адреса принадлежат сторонним сервисам.
+
+# 37Signals
+YOUR_VPS_IP 37signals.com
+YOUR_VPS_IP www.37signals.com
+YOUR_VPS_IP basecamp.com
+YOUR_VPS_IP www.basecamp.com
+YOUR_VPS_IP basecampapi.com
+YOUR_VPS_IP www.basecampapi.com
+
+# Aave
+YOUR_VPS_IP aave.com
+YOUR_VPS_IP www.aave.com
+
+# Adobe
+YOUR_VPS_IP adobe.io
+YOUR_VPS_IP www.adobe.io
+
+# Affinity Studio
+YOUR_VPS_IP affinity.studio
+YOUR_VPS_IP www.affinity.studio
+
+# Analog
+YOUR_VPS_IP analog.com
+YOUR_VPS_IP www.analog.com
+
 # AMD
 YOUR_VPS_IP amd.com
 YOUR_VPS_IP www.amd.com
 
+# Arkoselabs
+YOUR_VPS_IP arkoselabs.com
+YOUR_VPS_IP www.arkoselabs.com
+
+# Arduino
+YOUR_VPS_IP arduino.cc
+YOUR_VPS_IP www.arduino.cc
+
+# Arrow
+YOUR_VPS_IP arrow.com
+YOUR_VPS_IP www.arrow.com
+
+# Atlassian
+YOUR_VPS_IP atlassian.com
+YOUR_VPS_IP www.atlassian.com
+
+# Avast
+YOUR_VPS_IP avast.com
+YOUR_VPS_IP www.avast.com
+YOUR_VPS_IP avast.ru
+YOUR_VPS_IP www.avast.ru
+
 # Autodesk
-YOUR_VPS_IP accounts.autodesk.com
+YOUR_VPS_IP autocad.com
+YOUR_VPS_IP www.autocad.com
+YOUR_VPS_IP autodesk.ae
+YOUR_VPS_IP www.autodesk.ae
+YOUR_VPS_IP autodesk.be
+YOUR_VPS_IP www.autodesk.be
+YOUR_VPS_IP autodesk.com
 YOUR_VPS_IP www.autodesk.com
+YOUR_VPS_IP autodesk.eu
+YOUR_VPS_IP www.autodesk.eu
+YOUR_VPS_IP autodesk.net
+YOUR_VPS_IP www.autodesk.net
+YOUR_VPS_IP autodesk360.com
+YOUR_VPS_IP www.autodesk360.com
+YOUR_VPS_IP pubnubapi.com
+YOUR_VPS_IP www.pubnubapi.com
+YOUR_VPS_IP qualtrics.com
+YOUR_VPS_IP www.qualtrics.com
+YOUR_VPS_IP web-platform.io
+YOUR_VPS_IP www.web-platform.io
 
 # Badoo
 YOUR_VPS_IP badoo.app
 YOUR_VPS_IP badoocdn.com
 YOUR_VPS_IP badoo.com
+YOUR_VPS_IP www.badoo.com
 YOUR_VPS_IP consent.badoo.com
 YOUR_VPS_IP eu1.ecdn2.badoocdn.com
-YOUR_VPS_IP www.badoo.com
+
+# Bestbuy
+YOUR_VPS_IP bestbuy.com
+YOUR_VPS_IP www.bestbuy.com
+YOUR_VPS_IP streams.bestbuy.com
+
+# Brave
+YOUR_VPS_IP brave.com
+YOUR_VPS_IP www.brave.com
 
 # Broadcom
 YOUR_VPS_IP access.broadcom.com
@@ -26606,109 +26685,72 @@ YOUR_VPS_IP knowledge.broadcom.com
 YOUR_VPS_IP support.broadcom.com
 YOUR_VPS_IP profile.broadcom.com
 
+# Bike24
+YOUR_VPS_IP bike-components.de
+YOUR_VPS_IP www.bike-components.de
+YOUR_VPS_IP bike24.com
+YOUR_VPS_IP www.bike24.com
+
 # Canva
 YOUR_VPS_IP canva.com
+YOUR_VPS_IP www.canva.com
 YOUR_VPS_IP content-management-files.canva.com
 YOUR_VPS_IP static.canva.com
-YOUR_VPS_IP www.canva.com
+YOUR_VPS_IP canva-apps.com
+YOUR_VPS_IP www.canva-apps.com
+YOUR_VPS_IP canva.dev
+YOUR_VPS_IP www.canva.dev
+
+# Camel
+YOUR_VPS_IP camelai.com
+YOUR_VPS_IP www.camelai.com
+YOUR_VPS_IP stream.camelai.com
+
+# Capcut
+YOUR_VPS_IP capcut.com
+YOUR_VPS_IP www.capcut.com
+
+# Cerebras
+YOUR_VPS_IP api.cerebras.ai
+YOUR_VPS_IP cerebras.ai
+YOUR_VPS_IP www.cerebras.ai
+
+# Chaos
+YOUR_VPS_IP accounts.chaos.com
+YOUR_VPS_IP enscape3d.com
+YOUR_VPS_IP my.chaos.com
+YOUR_VPS_IP ssooauth.chaos.com
+YOUR_VPS_IP www.chaos.com
 
 # ChatGPT (OpenAI)
+YOUR_VPS_IP chatgpt.com
+YOUR_VPS_IP www.chatgpt.com
+YOUR_VPS_IP chatgpt.site
+YOUR_VPS_IP www.chatgpt.site
 YOUR_VPS_IP ab.chatgpt.com
-YOUR_VPS_IP android.chat.openai.com
-YOUR_VPS_IP api.chatgpt.com
-YOUR_VPS_IP api.openai.com
-YOUR_VPS_IP arena.openai.com
 YOUR_VPS_IP auth.openai.com
 YOUR_VPS_IP auth0.openai.com
-YOUR_VPS_IP beta.api.openai.com
-YOUR_VPS_IP beta.openai.com
-YOUR_VPS_IP blog.openai.com
-YOUR_VPS_IP cdn.auth0.com
-YOUR_VPS_IP cdn.oaistatic.com
-YOUR_VPS_IP cdn.openai.com
-YOUR_VPS_IP cdn.platform.openai.com
-YOUR_VPS_IP chat.openai.com
-YOUR_VPS_IP chatgpt-async-webps-prod-centralus-0.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-centralus-1.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-centralus-2.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-centralus-3.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-centralus-4.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-centralus-5.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-0-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-0.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-1-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-1.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-2-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-2.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-3-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-3.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-4-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-4.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-5-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-eastus-5.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-southcentralus-0.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-southcentralus-1.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-southcentralus-2.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-southcentralus-3.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-southcentralus-4.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-southcentralus-5.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-0-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-0.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-1-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-1.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-2-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-2.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-3-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-3.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-4-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-4.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-5-9e29c0310a29a59b.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-prod-westus-5.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-staging-eastus-0.chatgpt.com
-YOUR_VPS_IP chatgpt-async-webps-staging-southcentralus-0.chatgpt.com
-YOUR_VPS_IP chatgpt.com
-YOUR_VPS_IP community.openai.com
-YOUR_VPS_IP contest.openai.com
-YOUR_VPS_IP d.docs.live.net
-YOUR_VPS_IP debate-game.openai.com
-YOUR_VPS_IP developers.openai.com
-YOUR_VPS_IP discuss.openai.com
-YOUR_VPS_IP edge.chatgpt.com
-YOUR_VPS_IP files.oaiusercontent.com
-YOUR_VPS_IP gov-demo.chatgpt.com
-YOUR_VPS_IP gpt3-openai.com
-YOUR_VPS_IP gym.openai.com
-YOUR_VPS_IP help.openai.com
-YOUR_VPS_IP hooks-staging.chatgpt.com
-YOUR_VPS_IP ios.chat.openai.com
-YOUR_VPS_IP jukebox.openai.com
-YOUR_VPS_IP labs.openai.com
-YOUR_VPS_IP microscope.openai.com
-YOUR_VPS_IP mobile.events.data.microsoft.com
-YOUR_VPS_IP oaistatic.com
-YOUR_VPS_IP ogimg.chatgpt.com
-YOUR_VPS_IP openai.com
-YOUR_VPS_IP openai.fund
-YOUR_VPS_IP openai.org
-YOUR_VPS_IP operator.chatgpt.com
-YOUR_VPS_IP platform.api.openai.com
 YOUR_VPS_IP platform.openai.com
-YOUR_VPS_IP privacy-pass-issuer.api.chatgpt.com
-YOUR_VPS_IP realtime.chatgpt.com
-YOUR_VPS_IP search.chatgpt.com
-YOUR_VPS_IP sdmntpritalynorth.oaiusercontent.com
-YOUR_VPS_IP sdmntprnortheu.oaiusercontent.com
-YOUR_VPS_IP sdmntprpolandcentral.oaiusercontent.com
-YOUR_VPS_IP sdmntprukwest.oaiusercontent.com
-YOUR_VPS_IP sora.chatgpt.com
-YOUR_VPS_IP spinningup.openai.com
+YOUR_VPS_IP cdn.oaistatic.com
+YOUR_VPS_IP files.oaiusercontent.com
 YOUR_VPS_IP tcr9i.chat.openai.com
-YOUR_VPS_IP universe.openai.com
-YOUR_VPS_IP videos.openai.com
-YOUR_VPS_IP webrtc-staging.chatgpt.com
 YOUR_VPS_IP webrtc.chatgpt.com
-YOUR_VPS_IP ws.chatgpt.com
-YOUR_VPS_IP www.chatgpt.com
+YOUR_VPS_IP android.chat.openai.com
+YOUR_VPS_IP api.openai.com
+YOUR_VPS_IP operator.chatgpt.com
+YOUR_VPS_IP videos.openai.com
+YOUR_VPS_IP ios.chat.openai.com
+YOUR_VPS_IP cdn.platform.openai.com
+YOUR_VPS_IP developers.openai.com
+YOUR_VPS_IP sdmntprukwest.oaiusercontent.com
+YOUR_VPS_IP sdmntpritalynorth.oaiusercontent.com
+YOUR_VPS_IP sdmntprpolandcentral.oaiusercontent.com
+YOUR_VPS_IP sdmntprnortheu.oaiusercontent.com
+YOUR_VPS_IP oaiusercontent.com
+YOUR_VPS_IP www.oaiusercontent.com
+YOUR_VPS_IP oaistatic.com
+YOUR_VPS_IP www.oaistatic.com
+YOUR_VPS_IP openai.com
 YOUR_VPS_IP www.openai.com
 
 # Chess
@@ -26720,6 +26762,7 @@ YOUR_VPS_IP www.chess.com
 YOUR_VPS_IP a-api.anthropic.com
 YOUR_VPS_IP a-cdn.anthropic.com
 YOUR_VPS_IP anthropic.com
+YOUR_VPS_IP www.anthropic.com
 YOUR_VPS_IP api.anthropic.com
 YOUR_VPS_IP api.claude.ai
 YOUR_VPS_IP api.claude.com
@@ -26727,8 +26770,11 @@ YOUR_VPS_IP api.console.anthropic.com
 YOUR_VPS_IP assets-proxy.anthropic.com
 YOUR_VPS_IP auth.anthropic.com
 YOUR_VPS_IP claude.ai
+YOUR_VPS_IP www.claude.ai
 YOUR_VPS_IP claude.com
+YOUR_VPS_IP www.claude.com
 YOUR_VPS_IP claudemcpclient.com
+YOUR_VPS_IP www.claudemcpclient.com
 YOUR_VPS_IP console.anthropic.com
 YOUR_VPS_IP downloads.claude.ai
 YOUR_VPS_IP platform.claude.ai
@@ -26737,12 +26783,44 @@ YOUR_VPS_IP s-cdn.anthropic.com
 YOUR_VPS_IP statsig.anthropic.com
 YOUR_VPS_IP status.anthropic.com
 YOUR_VPS_IP support.anthropic.com
-YOUR_VPS_IP www.anthropic.com
-YOUR_VPS_IP www.claude.ai
-YOUR_VPS_IP www.claude.com
-YOUR_VPS_IP www.claudemcpclient.com
+
+# Clickup
+YOUR_VPS_IP clickup.com
+YOUR_VPS_IP www.clickup.com
+
+# Coreweave
+YOUR_VPS_IP coreweave.com
+YOUR_VPS_IP www.coreweave.com
+
+# Corsair
+YOUR_VPS_IP corsair.com
+YOUR_VPS_IP www.corsair.com
+
+# Crunchyroll
+YOUR_VPS_IP crunchyroll.com
+YOUR_VPS_IP www.crunchyroll.com
+
+# Cummins
+YOUR_VPS_IP cummins.com
+YOUR_VPS_IP www.cummins.com
+
+# Cursor AI
+YOUR_VPS_IP api2.cursor.sh
+YOUR_VPS_IP api3.cursor.sh
+YOUR_VPS_IP api4.cursor.sh
+YOUR_VPS_IP api5.cursor.sh
+YOUR_VPS_IP authenticate.cursor.sh
+YOUR_VPS_IP authenticator.cursor.sh
+YOUR_VPS_IP cursor.com
+YOUR_VPS_IP www.cursor.com
+YOUR_VPS_IP download.todesktop.com
+YOUR_VPS_IP downloads.cursor.com
+YOUR_VPS_IP marketplace.cursorapi.com
+YOUR_VPS_IP repo42.cursor.sh
 
 # DeepL
+YOUR_VPS_IP deepl.app
+YOUR_VPS_IP www.deepl.app
 YOUR_VPS_IP api-free.deepl.com
 YOUR_VPS_IP api.deepl.com
 YOUR_VPS_IP auth.deepl.com
@@ -26751,6 +26829,7 @@ YOUR_VPS_IP checkout.www.deepl.com
 YOUR_VPS_IP clearance.deepl.com
 YOUR_VPS_IP community-auth.deepl.com
 YOUR_VPS_IP deepl.com
+YOUR_VPS_IP www.deepl.com
 YOUR_VPS_IP developers.deepl.com
 YOUR_VPS_IP dict-audio.deepl.com
 YOUR_VPS_IP dict.deepl.com
@@ -26774,83 +26853,40 @@ YOUR_VPS_IP static.deepl.com
 YOUR_VPS_IP support.deepl.com
 YOUR_VPS_IP w.deepl.com
 YOUR_VPS_IP write-free.www.deepl.com
-YOUR_VPS_IP www.deepl.com
 
 # Deezer
-YOUR_VPS_IP aaa.deezer.com
-YOUR_VPS_IP account.deezer.com
-YOUR_VPS_IP activation.deezer.com
-YOUR_VPS_IP affiliate.deezer.com
-YOUR_VPS_IP ansync.deezer.com
-YOUR_VPS_IP api-websub.deezer.com
-YOUR_VPS_IP api.deezer.com
-YOUR_VPS_IP auth.deezer.com
-YOUR_VPS_IP backstage.deezer.com
-YOUR_VPS_IP bo-partners.deezer.com
-YOUR_VPS_IP bo-playlist.deezer.com
-YOUR_VPS_IP connect.deezer.com
-YOUR_VPS_IP creators.deezer.com
-YOUR_VPS_IP creatorsupport.deezer.com
-YOUR_VPS_IP curl-prod.deezer.com
-YOUR_VPS_IP dalida.deezer.com
-YOUR_VPS_IP dataconnect.deezer.com
 YOUR_VPS_IP deezer.com
-YOUR_VPS_IP dev-gcast.deezer.com
-YOUR_VPS_IP discovery.deezer.com
-YOUR_VPS_IP drp-auth.deezer.com
-YOUR_VPS_IP games-servers.deezer.com
-YOUR_VPS_IP games.deezer.com
-YOUR_VPS_IP gcast.deezer.com
-YOUR_VPS_IP handshake.deezer.com
-YOUR_VPS_IP hhe.deezer.com
-YOUR_VPS_IP homepod.deezer.com
-YOUR_VPS_IP images.deezer.com
-YOUR_VPS_IP inward.deezer.com
-YOUR_VPS_IP jobs.deezer.com
-YOUR_VPS_IP m.deezer.com
-YOUR_VPS_IP media.deezer.com
-YOUR_VPS_IP mydeezerstory.deezer.com
-YOUR_VPS_IP mydeezeryear.deezer.com
-YOUR_VPS_IP oauth.deezer.com
-YOUR_VPS_IP papi.deezer.com
-YOUR_VPS_IP partners.deezer.com
-YOUR_VPS_IP pay.deezer.com
-YOUR_VPS_IP payment.deezer.com
-YOUR_VPS_IP pipe.deezer.com
-YOUR_VPS_IP platform.deezer.com
-YOUR_VPS_IP plumbers.deezer.com
-YOUR_VPS_IP podcasters.deezer.com
-YOUR_VPS_IP preprod-preview.deezer.com
-YOUR_VPS_IP preprod-stream.deezer.com
-YOUR_VPS_IP preview.deezer.com
-YOUR_VPS_IP queue.deezer.com
-YOUR_VPS_IP research.deezer.com
-YOUR_VPS_IP shaker.deezer.com
-YOUR_VPS_IP sonos-queue-bridge.deezer.com
-YOUR_VPS_IP spleeterpro.deezer.com
-YOUR_VPS_IP stream.deezer.com
-YOUR_VPS_IP support.deezer.com
-YOUR_VPS_IP tv2.deezer.com
-YOUR_VPS_IP vdp.deezer.com
-YOUR_VPS_IP webviews.deezer.com
-YOUR_VPS_IP weight-images.deezer.com
-YOUR_VPS_IP wellbeing.deezer.com
-YOUR_VPS_IP widget.deezer.com
-YOUR_VPS_IP ws.deezer.com
 YOUR_VPS_IP www.deezer.com
-YOUR_VPS_IP zen.deezer.com
+YOUR_VPS_IP payment.deezer.com
 
 # Dell
 YOUR_VPS_IP afcs.dellcdn.com
+YOUR_VPS_IP dellcdn.com
+YOUR_VPS_IP www.dellcdn.com
 YOUR_VPS_IP dds.dell.com
 YOUR_VPS_IP dell.com
+YOUR_VPS_IP www.dell.com
 YOUR_VPS_IP i.dell.com
 YOUR_VPS_IP nexus.dell.com
-YOUR_VPS_IP www.dell.com
+
+# Dola
+YOUR_VPS_IP cici.com
+YOUR_VPS_IP www.cici.com
+YOUR_VPS_IP dola.com
+YOUR_VPS_IP www.dola.com
+
+# Digikey
+YOUR_VPS_IP digikey.com
+YOUR_VPS_IP www.digikey.com
+YOUR_VPS_IP digikeyassets.com
+YOUR_VPS_IP www.digikeyassets.com
 
 # Dyson
+YOUR_VPS_IP dyson.com
 YOUR_VPS_IP www.dyson.com
+YOUR_VPS_IP dyson.de
 YOUR_VPS_IP www.dyson.de
+YOUR_VPS_IP dyson.se
 YOUR_VPS_IP www.dyson.se
 
 # ElevenLabs
@@ -26858,13 +26894,16 @@ YOUR_VPS_IP api.elevenlabs.io
 YOUR_VPS_IP api.us.elevenlabs.io
 YOUR_VPS_IP eleven-public-cdn.elevenlabs.io
 YOUR_VPS_IP elevenlabs.io
+YOUR_VPS_IP www.elevenlabs.io
+YOUR_VPS_IP elevenmusic.io
+YOUR_VPS_IP www.elevenmusic.io
 YOUR_VPS_IP elevenreader.io
 YOUR_VPS_IP help.elevenlabs.io
 YOUR_VPS_IP payload.elevenlabs.io
 YOUR_VPS_IP try.elevenlabs.io
-YOUR_VPS_IP www.elevenlabs.io
 
 # Elgato
+YOUR_VPS_IP elgato.com
 YOUR_VPS_IP www.elgato.com
 
 # Fitbit
@@ -26879,7 +26918,9 @@ YOUR_VPS_IP api.fmhy.net
 YOUR_VPS_IP cat.fmhy.net
 YOUR_VPS_IP dynmap.fmhy.net
 YOUR_VPS_IP fmhy.lol
+YOUR_VPS_IP www.fmhy.lol
 YOUR_VPS_IP fmhy.net
+YOUR_VPS_IP www.fmhy.net
 YOUR_VPS_IP guides.fmhy.lol
 YOUR_VPS_IP i.fmhy.net
 YOUR_VPS_IP lemmy.fmhy.net
@@ -26898,16 +26939,39 @@ YOUR_VPS_IP status.fmhy.net
 YOUR_VPS_IP sub.whoogle.fmhy.net
 YOUR_VPS_IP ui.fmhy.net
 YOUR_VPS_IP whoogle.fmhy.net
-YOUR_VPS_IP www.fmhy.lol
-YOUR_VPS_IP www.fmhy.net
+
+# Formula1
+YOUR_VPS_IP formula1.com
+YOUR_VPS_IP www.formula1.com
 
 # Framer
 YOUR_VPS_IP framer.com
 YOUR_VPS_IP www.framer.com
 
-# GitHub Copilot
+# Game8
+YOUR_VPS_IP game8.co
+YOUR_VPS_IP www.game8.co
+YOUR_VPS_IP game8.co.jp
+YOUR_VPS_IP www.game8.co.jp
+YOUR_VPS_IP game8.jp
+YOUR_VPS_IP www.game8.jp
+
+# Genspark AI
+YOUR_VPS_IP genspark.ai
+YOUR_VPS_IP www.genspark.ai
 
 # Google AI
+YOUR_VPS_IP antigravity.google
+YOUR_VPS_IP www.antigravity.google
+YOUR_VPS_IP datastudio.google.com
+YOUR_VPS_IP flow.google
+YOUR_VPS_IP www.flow.google
+YOUR_VPS_IP flowmusic.app
+YOUR_VPS_IP www.flowmusic.app
+YOUR_VPS_IP notebook-pa.googleapis.com
+YOUR_VPS_IP notebook.google
+YOUR_VPS_IP www.notebook.google
+YOUR_VPS_IP notebook.google.com
 YOUR_VPS_IP ai.google.dev
 YOUR_VPS_IP aisandbox-pa.googleapis.com
 YOUR_VPS_IP aistudio.google.com
@@ -26952,31 +27016,13 @@ YOUR_VPS_IP webchannel-alkalimakersuite-pa.clients6.google.com
 # Grok
 YOUR_VPS_IP accounts.x.ai
 YOUR_VPS_IP api.x.ai
-YOUR_VPS_IP asia-south1-livekit.grok.com
 YOUR_VPS_IP assets.grok.com
 YOUR_VPS_IP assets.x.ai
-YOUR_VPS_IP console.x.ai
-YOUR_VPS_IP data.x.ai
-YOUR_VPS_IP deferred-chat.x.ai
-YOUR_VPS_IP docs.x.ai
-YOUR_VPS_IP eu-west-1.api.x.ai
 YOUR_VPS_IP grok.com
-YOUR_VPS_IP grok.x.ai
-YOUR_VPS_IP imgen.x.ai
-YOUR_VPS_IP jf.x.ai
-YOUR_VPS_IP livekit.grok.com
-YOUR_VPS_IP login.x.ai
-YOUR_VPS_IP ssff.grok.com
-YOUR_VPS_IP status.x.ai
-YOUR_VPS_IP transcription.grok-v2.x.ai
-YOUR_VPS_IP trust.x.ai
-YOUR_VPS_IP typeahead.grok.com
-YOUR_VPS_IP us-east-1.api.x.ai
-YOUR_VPS_IP us-east-4-raw.api.x.ai
-YOUR_VPS_IP us-south-1-pltr.api.x.ai
-YOUR_VPS_IP us-west-1.api.x.ai
-YOUR_VPS_IP us-west-1-raw.api.x.ai
 YOUR_VPS_IP www.grok.com
+YOUR_VPS_IP grok.x.com
+YOUR_VPS_IP grok.x.ai
+YOUR_VPS_IP x.ai
 YOUR_VPS_IP www.x.ai
 
 # Guidedhacking
@@ -26987,143 +27033,48 @@ YOUR_VPS_IP www.guidedhacking.com
 YOUR_VPS_IP guilded.gg
 YOUR_VPS_IP www.guilded.gg
 
+# Hume AI
+YOUR_VPS_IP hume.ai
+YOUR_VPS_IP www.hume.ai
+
+# Ikea
+YOUR_VPS_IP ikea.com
+YOUR_VPS_IP www.ikea.com
+
 # Imgur
 YOUR_VPS_IP api.imgur.com
 
 # Intel
 YOUR_VPS_IP intel.com
 YOUR_VPS_IP www.intel.com
+YOUR_VPS_IP intel.de
+YOUR_VPS_IP www.intel.de
+YOUR_VPS_IP intel.se
+YOUR_VPS_IP www.intel.se
 YOUR_VPS_IP geolocation.onetrust.com
 
 # JetBrains
-YOUR_VPS_IP academy.jetbrains.com
-YOUR_VPS_IP account.jetbrains.com
-YOUR_VPS_IP adobe.fls.jetbrains.com
-YOUR_VPS_IP amazon.fls.jetbrains.com
-YOUR_VPS_IP ap-help.api.jetbrains.com
-YOUR_VPS_IP api-test.sandbox-resellers.jetbrains.com
-YOUR_VPS_IP api.jetbrains.ai
-YOUR_VPS_IP autoconfig.api.jetbrains.com
-YOUR_VPS_IP autodiscover.api.jetbrains.com
-YOUR_VPS_IP awsproxy.pkg-cdn.jetbrains.space
-YOUR_VPS_IP blog.jetbrains.com
-YOUR_VPS_IP blogs.jetbrains.com
-YOUR_VPS_IP byid.eu-1.jetbrains.space
-YOUR_VPS_IP byid.jetbrains.space
-YOUR_VPS_IP ca.jetbrains.com
-YOUR_VPS_IP cai.jetbrains.com
-YOUR_VPS_IP cdn.jetbrains.com
-YOUR_VPS_IP cloudconfig.jetbrains.com
-YOUR_VPS_IP cloudfront.pkg-cdn.jetbrains.space
-YOUR_VPS_IP code-with-me.jetbrains.com
-YOUR_VPS_IP code2art.jetbrains.com
-YOUR_VPS_IP codewithme-lobby-production.api.jetbrains.com
-YOUR_VPS_IP codewithme-lobby-staging.api.jetbrains.com
-YOUR_VPS_IP codewithme-lobby.api.jetbrains.com
-YOUR_VPS_IP codewithme-relay-europe-north1-1.api.jetbrains.com
-YOUR_VPS_IP codewithme-relay-europe-north1-2.api.jetbrains.com
-YOUR_VPS_IP comments.blog.jetbrains.com
-YOUR_VPS_IP configr.jetbrains.com
-YOUR_VPS_IP confluence.jetbrains.com
-YOUR_VPS_IP corona.jetbrains.space
-YOUR_VPS_IP data.services.jetbrains.com
-YOUR_VPS_IP datalore-forum.jetbrains.com
 YOUR_VPS_IP datalore.jetbrains.com
-YOUR_VPS_IP dc.jetbrains.space
-YOUR_VPS_IP dotcover-support.jetbrains.com
-YOUR_VPS_IP dotmemory-support.jetbrains.com
-YOUR_VPS_IP dotnet-ea.services.jetbrains.com
-YOUR_VPS_IP dotpeek-support.jetbrains.com
-YOUR_VPS_IP dottrace-support.jetbrains.com
-YOUR_VPS_IP download-cdn.jetbrains.com
-YOUR_VPS_IP downloads.marketplace.jetbrains.com
-YOUR_VPS_IP dunnhumby.fls.jetbrains.com
-YOUR_VPS_IP ea.jetbrains.com
-YOUR_VPS_IP eap.jetbrains.com
-YOUR_VPS_IP element.jetbrains.space
-YOUR_VPS_IP employee-guides.jetbrains.com
-YOUR_VPS_IP eu-1.jetbrains.space
-YOUR_VPS_IP fleet-relay.api.jetbrains.com
-YOUR_VPS_IP geo2.datalore.jetbrains.com
-YOUR_VPS_IP guide.master-zdchint.mau.jetbrains.com
-YOUR_VPS_IP guide.staging-zdchint.mau.jetbrains.com
-YOUR_VPS_IP hacktoberfest2020.mau.jetbrains.com
-YOUR_VPS_IP handle.prod.csat.mau.jetbrains.com
-YOUR_VPS_IP handle.staging.csat.mau.jetbrains.com
-YOUR_VPS_IP hello.jetbrains.com
-YOUR_VPS_IP hub.jetbrains.com
-YOUR_VPS_IP ij-perf.jetbrains.com
-YOUR_VPS_IP index-cdn.jetbrains.com
-YOUR_VPS_IP int.api.jetbrains.com
-YOUR_VPS_IP internship.jetbrains.com
-YOUR_VPS_IP jb-team.fls.jetbrains.com
-YOUR_VPS_IP jbstats.jetbrains.com
-YOUR_VPS_IP jetarchive.jetbrains.com
-YOUR_VPS_IP jetbrains.com
-YOUR_VPS_IP jetbrains.space
-YOUR_VPS_IP jetpeople.jetbrains.com
-YOUR_VPS_IP justtoplay.jetbrains.space
-YOUR_VPS_IP local.api.jetbrains.com
-YOUR_VPS_IP lp.jetbrains.com
-YOUR_VPS_IP lservice.jetbrains.com
-YOUR_VPS_IP mail.jetbrains.com
-YOUR_VPS_IP marketplace.jetbrains.com
-YOUR_VPS_IP maven.jetbrains.space
-YOUR_VPS_IP maven.pkg.jetbrains.space
-YOUR_VPS_IP merchandise.jetbrains.com
-YOUR_VPS_IP mkto-mailer.jetbrains.com
-YOUR_VPS_IP mta-sts.jetbrains.com
-YOUR_VPS_IP myjetbrains.com
-YOUR_VPS_IP ngenix.assets.service.jetbrains.space
-YOUR_VPS_IP oauth.account.jetbrains.com
-YOUR_VPS_IP oauth.fls.jetbrains.com
-YOUR_VPS_IP oauth2-proxy-api.api.jetbrains.com
-YOUR_VPS_IP onboard.jetbrains.com
-YOUR_VPS_IP package-search.jetbrains.com
-YOUR_VPS_IP package-search.services.jetbrains.com
-YOUR_VPS_IP pkg-cdn.jetbrains.space
-YOUR_VPS_IP pkg.eu-1.jetbrains.space
 YOUR_VPS_IP plugins.jetbrains.com
-YOUR_VPS_IP registry.eu-1.jetbrains.space
-YOUR_VPS_IP registry.jetbrains.space
-YOUR_VPS_IP renew-your-ssl-certificate.jetbrains.com
-YOUR_VPS_IP resharper-plugins.jetbrains.com
-YOUR_VPS_IP resources.jetbrains.com
-YOUR_VPS_IP ruhlaender.jetbrains.space
-YOUR_VPS_IP sales.jetbrains.com
-YOUR_VPS_IP skyscanner.fls.jetbrains.com
-YOUR_VPS_IP slack-bdt.mau.jetbrains.com
-YOUR_VPS_IP slack-mps.jetbrains.com
-YOUR_VPS_IP slack.jetbrains.com
-YOUR_VPS_IP space-cdn.jetbrains.space
-YOUR_VPS_IP spotify.fls.jetbrains.com
-YOUR_VPS_IP stackexchange.master-zdchint.mau.jetbrains.com
-YOUR_VPS_IP stackexchange.staging-zdchint.mau.jetbrains.com
-YOUR_VPS_IP staging.zdviewcount.mau.jetbrains.com
-YOUR_VPS_IP support.jetbrains.com
-YOUR_VPS_IP sv.fls.jetbrains.com
-YOUR_VPS_IP swu-acm.jetbrains.space
-YOUR_VPS_IP teamcity-support.jetbrains.com
-YOUR_VPS_IP teamcity.jetbrains.com
-YOUR_VPS_IP tiles.datalore.jetbrains.com
-YOUR_VPS_IP tiles2.datalore.jetbrains.com
-YOUR_VPS_IP uploads.jetbrains.com
-YOUR_VPS_IP uploads.services.jetbrains.com
-YOUR_VPS_IP upsource.jetbrains.com
-YOUR_VPS_IP view.datalore.jetbrains.com
-YOUR_VPS_IP walx.jetbrains.space
+YOUR_VPS_IP download.jetbrains.com
+YOUR_VPS_IP api.jetbrains.ai
+YOUR_VPS_IP account.jetbrains.com
+YOUR_VPS_IP jetbrains.com
 YOUR_VPS_IP www.jetbrains.com
+YOUR_VPS_IP jetbrains.space
 YOUR_VPS_IP www.jetbrains.space
-YOUR_VPS_IP youtrack.jetbrains.com
-YOUR_VPS_IP youtube.master-zdchint.mau.jetbrains.com
-YOUR_VPS_IP youtube.staging-zdchint.mau.jetbrains.com
-YOUR_VPS_IP zillow.fls.jetbrains.com
+YOUR_VPS_IP myjetbrains.com
+YOUR_VPS_IP www.myjetbrains.com
+
+# Kaleido AI
+YOUR_VPS_IP kaleido.ai
+YOUR_VPS_IP www.kaleido.ai
 
 # Last.fm
 YOUR_VPS_IP autodiscover.last.fm
 YOUR_VPS_IP jira.last.fm
 YOUR_VPS_IP last.fm
-YOUR_VPS_IP lastfm.freetls.fastly.net
+YOUR_VPS_IP www.last.fm
 YOUR_VPS_IP s.last.fm
 YOUR_VPS_IP saa.last.fm
 YOUR_VPS_IP secure.last.fm
@@ -27131,12 +27082,17 @@ YOUR_VPS_IP shop.last.fm
 YOUR_VPS_IP store.last.fm
 YOUR_VPS_IP support.last.fm
 YOUR_VPS_IP wiki.last.fm
-YOUR_VPS_IP www.last.fm
+YOUR_VPS_IP ws.audioscrobbler.com
+
+# Lego
+YOUR_VPS_IP lego.com
+YOUR_VPS_IP www.lego.com
 
 # Linear.app
 YOUR_VPS_IP client-api.linear.app
 YOUR_VPS_IP constellation.linear.app
 YOUR_VPS_IP linear.app
+YOUR_VPS_IP www.linear.app
 YOUR_VPS_IP public.linear.app
 YOUR_VPS_IP s.linear.app
 YOUR_VPS_IP static.linear.app
@@ -27146,13 +27102,54 @@ YOUR_VPS_IP uploads.linear.app
 YOUR_VPS_IP make.com
 YOUR_VPS_IP www.make.com
 
+# Makita
+YOUR_VPS_IP makita.ca
+YOUR_VPS_IP www.makita.ca
+YOUR_VPS_IP makita.cl
+YOUR_VPS_IP www.makita.cl
+YOUR_VPS_IP makita.co.nz
+YOUR_VPS_IP www.makita.co.nz
+YOUR_VPS_IP makita.com.au
+YOUR_VPS_IP www.makita.com.au
+YOUR_VPS_IP makita.com.kh
+YOUR_VPS_IP makita.com.tw
+YOUR_VPS_IP www.makita.com.tw
+YOUR_VPS_IP makita.sk
+YOUR_VPS_IP www.makita.sk
+YOUR_VPS_IP makita.ua
+YOUR_VPS_IP www.makita.ua
+YOUR_VPS_IP makitalatinamerica.com
+YOUR_VPS_IP www.makitalatinamerica.com
+
 # Manus
 YOUR_VPS_IP api.manus.im
+YOUR_VPS_IP files.manuscdn.com
 YOUR_VPS_IP manus.im
+YOUR_VPS_IP www.manus.im
 
 # Meta AI
 YOUR_VPS_IP meta.ai
 YOUR_VPS_IP www.meta.ai
+
+# Microchip
+YOUR_VPS_IP microchip.com
+YOUR_VPS_IP www.microchip.com
+
+# Modivo
+YOUR_VPS_IP img.modivo.cloud
+YOUR_VPS_IP modivo.pl
+YOUR_VPS_IP www.modivo.pl
+
+# Monica
+YOUR_VPS_IP monica.im
+YOUR_VPS_IP www.monica.im
+
+# Mongodb
+YOUR_VPS_IP api.blue.mongodb.com
+YOUR_VPS_IP evs.blue.mongodb.co
+YOUR_VPS_IP webassets.mongodb.com
+YOUR_VPS_IP mongodb.com
+YOUR_VPS_IP www.mongodb.com
 
 # Naukri
 YOUR_VPS_IP aeronube.csm.naukri.com
@@ -27198,8 +27195,10 @@ YOUR_VPS_IP delivery.naukri.com
 YOUR_VPS_IP demologin.resdex.naukri.com
 YOUR_VPS_IP demoresdex.naukri.com
 YOUR_VPS_IP e-learning.naukri.com
+YOUR_VPS_IP www.e-learning.naukri.com
 YOUR_VPS_IP eapps.naukri.com
 YOUR_VPS_IP echo.naukri.com
+YOUR_VPS_IP www.echo.naukri.com
 YOUR_VPS_IP engineering.naukri.com
 YOUR_VPS_IP enterprise.naukri.com
 YOUR_VPS_IP feeds.naukri.com
@@ -27224,6 +27223,7 @@ YOUR_VPS_IP jpreports.naukri.com
 YOUR_VPS_IP js.naukimg.com
 YOUR_VPS_IP js.naukri.com
 YOUR_VPS_IP learning.naukri.com
+YOUR_VPS_IP www.learning.naukri.com
 YOUR_VPS_IP lg.naukri.com
 YOUR_VPS_IP lms.naukri.com
 YOUR_VPS_IP login.naukri.com
@@ -27247,6 +27247,7 @@ YOUR_VPS_IP mobile.naukri.com
 YOUR_VPS_IP mscanus.naukri.com
 YOUR_VPS_IP my.naukri.com
 YOUR_VPS_IP naukri.com
+YOUR_VPS_IP www.naukri.com
 YOUR_VPS_IP naukriconfidential.naukri.com
 YOUR_VPS_IP naukrihiringsuite.naukri.com
 YOUR_VPS_IP naukrirecruiter.naukri.com
@@ -27299,6 +27300,7 @@ YOUR_VPS_IP resman.naukri.com
 YOUR_VPS_IP response.naukri.com
 YOUR_VPS_IP restservices.naukri.com
 YOUR_VPS_IP resume.naukri.com
+YOUR_VPS_IP www.resume.naukri.com
 YOUR_VPS_IP resumepedia.naukri.com
 YOUR_VPS_IP resumeservices.naukri.com
 YOUR_VPS_IP rms.naukri.com
@@ -27342,12 +27344,7 @@ YOUR_VPS_IP webhooks.naukri.com
 YOUR_VPS_IP webtracker.naukri.com
 YOUR_VPS_IP whitehat.naukri.com
 YOUR_VPS_IP wtg.csm.naukri.com
-YOUR_VPS_IP www.e-learning.naukri.com
-YOUR_VPS_IP www.echo.naukri.com
-YOUR_VPS_IP www.learning.naukri.com
 YOUR_VPS_IP www.naukimg.com
-YOUR_VPS_IP www.naukri.com
-YOUR_VPS_IP www.resume.naukri.com
 YOUR_VPS_IP yahoo.naukri.com
 
 # Notion
@@ -27355,23 +27352,24 @@ YOUR_VPS_IP app.notion.com
 YOUR_VPS_IP calendar.notion.com
 YOUR_VPS_IP calendar.notion.so
 YOUR_VPS_IP notion.com
+YOUR_VPS_IP www.notion.com
 YOUR_VPS_IP notion.so
 YOUR_VPS_IP www.notion.so
-YOUR_VPS_IP www.notion.com
 
 # Nvidia
 YOUR_VPS_IP developer.nvidia.com
 
+# OpenCode AI
+YOUR_VPS_IP opencode.ai
+YOUR_VPS_IP www.opencode.ai
+
+# OpenRouter AI
+YOUR_VPS_IP openrouter.ai
+YOUR_VPS_IP www.openrouter.ai
+
 # Oracle
 YOUR_VPS_IP oracle.com
 YOUR_VPS_IP www.oracle.com
-
-# Patreon
-YOUR_VPS_IP patreon.com
-YOUR_VPS_IP c5.patreon.com
-YOUR_VPS_IP c13.patreon.com
-YOUR_VPS_IP www.patreon.com
-YOUR_VPS_IP c10.patreonusercontent.com
 
 # Posthog
 YOUR_VPS_IP eu.posthog.com
@@ -27385,10 +27383,20 @@ YOUR_VPS_IP swap-api.pump.fun
 # Reve
 YOUR_VPS_IP app.reve.com
 YOUR_VPS_IP preview.reve.art
+YOUR_VPS_IP reve.art
+YOUR_VPS_IP www.reve.art
+YOUR_VPS_IP reve.com
+YOUR_VPS_IP www.reve.com
 
 # Qwant
 YOUR_VPS_IP qwant.com
 YOUR_VPS_IP www.qwant.com
+
+# Scribd
+YOUR_VPS_IP scribd.com
+YOUR_VPS_IP www.scribd.com
+YOUR_VPS_IP scribdassets.com
+YOUR_VPS_IP www.scribdassets.com
 
 # SketchUp
 YOUR_VPS_IP sketchup.com
@@ -27397,54 +27405,28 @@ YOUR_VPS_IP id.trimble.com
 YOUR_VPS_IP sketchup.trimble.com
 
 # Spotify
-YOUR_VPS_IP accounts.scdn.co
-YOUR_VPS_IP accounts.spotify.com
-YOUR_VPS_IP aet.spotify.com
-YOUR_VPS_IP ap-gew1.spotify.com
-YOUR_VPS_IP ap-gue1.spotify.com
-YOUR_VPS_IP ap-gae2.spotify.com
-YOUR_VPS_IP ap-guc3.spotify.com
-YOUR_VPS_IP ap-gew4.spotify.com
-YOUR_VPS_IP api-partner.spotify.com
-YOUR_VPS_IP api.spotify.com
-YOUR_VPS_IP audio-fa-tls13.spotifycdn.com
-YOUR_VPS_IP audio-fa.scdn.co
-YOUR_VPS_IP canvaz.scdn.co
-YOUR_VPS_IP charts-images.scdn.co
-YOUR_VPS_IP concerts.spotifycdn.com
-YOUR_VPS_IP encore.scdn.co
-YOUR_VPS_IP gew1-dealer.spotify.com
-YOUR_VPS_IP gew1-spclient.spotify.com
-YOUR_VPS_IP heads-fa-tls13.spotifycdn.com
-YOUR_VPS_IP i-lo.scdn.co
-YOUR_VPS_IP i.scdn.co
-YOUR_VPS_IP image-cdn-fa.spotifycdn.com
-YOUR_VPS_IP login5.spotify.com
-YOUR_VPS_IP mrkt.spotifycdn.com
-YOUR_VPS_IP open-exp.spotifycdn.com
-YOUR_VPS_IP open.spotify.com
-YOUR_VPS_IP pickasso.spotifycdn.com
-YOUR_VPS_IP podz-content.spotifycdn.com
-YOUR_VPS_IP seed-mix-image.spotifycdn.com
-YOUR_VPS_IP seektables.scdn.co
-YOUR_VPS_IP spclient.wg.spotify.com
-YOUR_VPS_IP spotifycdn.com
-YOUR_VPS_IP spotifycdn.net
-YOUR_VPS_IP t.scdn.co
-YOUR_VPS_IP thisis-images.spotifycdn.com
-YOUR_VPS_IP wap.spotifycdn.com
-YOUR_VPS_IP web-sdk-assets.spotifycdn.com
-YOUR_VPS_IP www-growth.scdn.co
+YOUR_VPS_IP spotify.com
 YOUR_VPS_IP www.spotify.com
-YOUR_VPS_IP widget-content.spotify.com
-YOUR_VPS_IP edge-web.dual-gslb.spotify.com
-YOUR_VPS_IP apresolve.spotify.com
-YOUR_VPS_IP edge-web-gew1.dual-gslb.spotify.com
-YOUR_VPS_IP edge-web-gue1.dual-gslb.spotify.com
+YOUR_VPS_IP api.spotify.com
+YOUR_VPS_IP login5.spotify.com
+YOUR_VPS_IP encore.scdn.co
+YOUR_VPS_IP gew1-spclient.spotify.com
+YOUR_VPS_IP spclient.wg.spotify.com
+YOUR_VPS_IP api-partner.spotify.com
+YOUR_VPS_IP aet.spotify.com
+YOUR_VPS_IP accounts.spotify.com
+YOUR_VPS_IP open.spotify.com
+YOUR_VPS_IP accounts.scdn.co
+YOUR_VPS_IP gew1-dealer.spotify.com
+YOUR_VPS_IP www-growth.scdn.co
+YOUR_VPS_IP scdn.co
+YOUR_VPS_IP www.scdn.co
 
 # Strava
 YOUR_VPS_IP blog.strava.com
+YOUR_VPS_IP www.blog.strava.com
 YOUR_VPS_IP business.strava.com
+YOUR_VPS_IP www.business.strava.com
 YOUR_VPS_IP c.strava.com
 YOUR_VPS_IP cdn-1.strava.com
 YOUR_VPS_IP communityhub.strava.com
@@ -27457,8 +27439,10 @@ YOUR_VPS_IP graphql.strava.com
 YOUR_VPS_IP interview.strava.com
 YOUR_VPS_IP links.strava.com
 YOUR_VPS_IP metro.strava.com
+YOUR_VPS_IP www.metro.strava.com
 YOUR_VPS_IP mi.strava.com
 YOUR_VPS_IP promo.strava.com
+YOUR_VPS_IP www.promo.strava.com
 YOUR_VPS_IP scim.strava.com
 YOUR_VPS_IP shop.strava.com
 YOUR_VPS_IP staging.strava.com
@@ -27466,16 +27450,20 @@ YOUR_VPS_IP status.strava.com
 YOUR_VPS_IP store.strava.com
 YOUR_VPS_IP stories.strava.com
 YOUR_VPS_IP strava.com
+YOUR_VPS_IP www.strava.com
 YOUR_VPS_IP support.strava.com
 YOUR_VPS_IP tiles.strava.com
 YOUR_VPS_IP watch.samsung.strava.com
-YOUR_VPS_IP www.blog.strava.com
-YOUR_VPS_IP www.business.strava.com
-YOUR_VPS_IP www.metro.strava.com
-YOUR_VPS_IP www.promo.strava.com
-YOUR_VPS_IP www.strava.com
+
+# Stumble Guys
+YOUR_VPS_IP api.stumbleguys.com
+YOUR_VPS_IP matchmaking.stumbleguys.com
 
 # Supercell
+YOUR_VPS_IP game.brawlstarsgame.com
+YOUR_VPS_IP game.clashroyaleapp.com
+YOUR_VPS_IP game.squadbustersgame.com
+YOUR_VPS_IP gamea.clashofclans.com
 YOUR_VPS_IP accounts.supercell.com
 YOUR_VPS_IP cdn.id.supercell.com
 YOUR_VPS_IP clashofclans.inbox.supercell.com
@@ -27483,11 +27471,7 @@ YOUR_VPS_IP game-assets.brawlstarsgame.com
 YOUR_VPS_IP game-assets.clashofclans.com
 YOUR_VPS_IP game-assets.clashroyaleapp.com
 YOUR_VPS_IP game.boombeachgame.com
-YOUR_VPS_IP game.brawlstarsgame.com
-YOUR_VPS_IP game.clashroyaleapp.com
-YOUR_VPS_IP gamea.clashofclans.com
 YOUR_VPS_IP game.mocogame.com
-YOUR_VPS_IP game.squadbustersgame.com
 YOUR_VPS_IP security.id.supercell.com
 YOUR_VPS_IP store.supercell.com
 
@@ -27502,19 +27486,6 @@ YOUR_VPS_IP controlplane.tailscale.com
 YOUR_VPS_IP download.teamviewer.com
 YOUR_VPS_IP dl.teamviewer.com
 
-# Tidal
-YOUR_VPS_IP api.tidal.com
-YOUR_VPS_IP listen.tidal.com
-YOUR_VPS_IP login.tidal.com
-YOUR_VPS_IP auth.tidal.com
-YOUR_VPS_IP link.tidal.com
-YOUR_VPS_IP dd.tidal.com
-YOUR_VPS_IP resources.tidal.com
-YOUR_VPS_IP images.tidal.com
-YOUR_VPS_IP fsu.fa.tidal.com
-YOUR_VPS_IP api.squareup.com
-YOUR_VPS_IP api-global.squareup.com
-
 # Trae.ai
 YOUR_VPS_IP api-sg-central.trae.ai
 YOUR_VPS_IP api.trae.ai
@@ -27526,6 +27497,7 @@ YOUR_VPS_IP tria.ge
 YOUR_VPS_IP www.tria.ge
 
 # Truth Social
+YOUR_VPS_IP www.truthsocial.com
 YOUR_VPS_IP truthsocial.com
 YOUR_VPS_IP static-assets-1.truthsocial.com
 
@@ -27539,6 +27511,7 @@ YOUR_VPS_IP pay.tuta.com
 YOUR_VPS_IP status.tuta.com
 YOUR_VPS_IP test.tuta.com
 YOUR_VPS_IP tuta.com
+YOUR_VPS_IP www.tuta.com
 YOUR_VPS_IP tutanota.com
 YOUR_VPS_IP w1.api.test.tuta.com
 YOUR_VPS_IP w10.api.tuta.com
@@ -27556,7 +27529,6 @@ YOUR_VPS_IP w6.api.test.tuta.com
 YOUR_VPS_IP w7.api.test.tuta.com
 YOUR_VPS_IP w8.api.test.tuta.com
 YOUR_VPS_IP w9.api.tuta.com
-YOUR_VPS_IP www.tuta.com
 
 # Twitch
 YOUR_VPS_IP gql.twitch.tv
@@ -27565,18 +27537,24 @@ YOUR_VPS_IP usher.ttvnw.net
 # Weather.com
 YOUR_VPS_IP upsx.weather.com
 YOUR_VPS_IP weather.com
+YOUR_VPS_IP www.weather.com
 
 # Weather Underground
 YOUR_VPS_IP wunderground.com
+YOUR_VPS_IP www.wunderground.com
 YOUR_VPS_IP wund.com
+YOUR_VPS_IP www.wund.com
 YOUR_VPS_IP w-x.co
+YOUR_VPS_IP www.w-x.co
 YOUR_VPS_IP wxug.com
+YOUR_VPS_IP www.wxug.com
 
 # Web Archive
 YOUR_VPS_IP web.archive.org
 
 # Windsurf
 YOUR_VPS_IP codeium.com
+YOUR_VPS_IP www.codeium.com
 YOUR_VPS_IP codeiumdata.com
 YOUR_VPS_IP inference.codeium.com
 YOUR_VPS_IP marketplace.windsurf.com
@@ -27587,12 +27565,18 @@ YOUR_VPS_IP windsurf-stable.codeium.com
 YOUR_VPS_IP windsurf-telemetry.codeium.com
 YOUR_VPS_IP windsurf.com
 
+# Wix
+YOUR_VPS_IP users.wix.com
+
 # WorkOS
 YOUR_VPS_IP api.workos.com
 
 # Xerox
 YOUR_VPS_IP xerox.com
 YOUR_VPS_IP www.xerox.com
+
+# ZeroSSL
+YOUR_VPS_IP app.zerossl.com
 YOUR_VPS_IP raw.githubusercontent.com
 YOUR_VPS_IP release-assets.githubusercontent.com
 YOUR_VPS_IP objects.githubusercontent.com
@@ -27611,7 +27595,6 @@ YOUR_VPS_IP aicode.googleapis.com
 YOUR_VPS_IP ai.googleapis.com
 YOUR_VPS_IP cloudcode-pa.googleapis.com
 YOUR_VPS_IP aiplatform.googleapis.com
-YOUR_VPS_IP arduino.cc
 YOUR_VPS_IP downloads.arduino.cc
 YOUR_VPS_IP api.arduino.cc
 YOUR_VPS_IP builder.arduino.cc
