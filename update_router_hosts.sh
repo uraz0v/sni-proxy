@@ -1,21 +1,36 @@
 #!/bin/sh
 # Этот скрипт автоматически обновляет файл /etc/hosts на роутере OpenWrt
-# Использование: sh update_router_hosts.sh [VPS_IP]
+# === START: [2026-09-22] Поддержка Dual-Stack (IPv4 + IPv6) ===
+# Использование: sh update_router_hosts.sh [VPS_IPv4] [VPS_IPv6]
 
 VPS_IP="$1"
+VPS_IPV6="$2"
+
 if [ -z "$VPS_IP" ]; then
-    # Если IP не передан (например, при запуске из крона), пытаемся прочитать из файла
+    # Если IPv4 не передан (например, при запуске из крона), читаем из файла
     if [ -f /etc/sni_proxy_ip ]; then
         VPS_IP=$(cat /etc/sni_proxy_ip)
     else
-        echo "Ошибка: не указан IP адрес VPS."
-        echo "Использование: $0 <VPS_IP>"
+        echo "Ошибка: не указан IPv4 адрес VPS."
+        echo "Использование: $0 <VPS_IPv4> [VPS_IPv6]"
         exit 1
     fi
 else
-    # Сохраняем IP для будущих запусков через cron
+    # Сохраняем IPv4 для будущих запусков через cron
     echo "$VPS_IP" > /etc/sni_proxy_ip
 fi
+
+if [ -n "$VPS_IPV6" ]; then
+    if [ "$VPS_IPV6" = "none" ] || [ "$VPS_IPV6" = "off" ]; then
+        rm -f /etc/sni_proxy_ipv6
+        VPS_IPV6=""
+    else
+        echo "$VPS_IPV6" > /etc/sni_proxy_ipv6
+    fi
+elif [ -f /etc/sni_proxy_ipv6 ]; then
+    VPS_IPV6=$(cat /etc/sni_proxy_ipv6)
+fi
+# === END: [2026-09-22] Поддержка Dual-Stack (IPv4 + IPv6) ===
 
 TEMPLATE_URL="https://raw.githubusercontent.com/uraz0v/sni-proxy/main/mega_hosts_template.txt"
 TMP_TEMPLATE="/tmp/mega_hosts_template.txt"
@@ -35,8 +50,22 @@ if [ ! -s "$TMP_TEMPLATE" ]; then
     exit 1
 fi
 
-echo "Подставляем IP сервера ($VPS_IP)..."
-sed "s/YOUR_VPS_IP/$VPS_IP/g" "$TMP_TEMPLATE" > /tmp/proxy_block.txt
+# === START: [2026-09-22] Поддержка Dual-Stack (IPv4 + IPv6) ===
+if [ -n "$VPS_IPV6" ]; then
+    echo "Подставляем IP сервера (Dual-Stack: IPv4 $VPS_IP, IPv6 $VPS_IPV6)..."
+else
+    echo "Подставляем IP сервера (IPv4 $VPS_IP)..."
+fi
+
+awk -v ip4="$VPS_IP" -v ip6="$VPS_IPV6" '{
+    if ($1 == "YOUR_VPS_IP") {
+        print ip4 " " $2
+        if (ip6 != "") print ip6 " " $2
+    } else {
+        print $0
+    }
+}' "$TMP_TEMPLATE" > /tmp/proxy_block.txt
+# === END: [2026-09-22] Поддержка Dual-Stack (IPv4 + IPv6) ===
 
 echo "Анализируем текущий /etc/hosts..."
 # Извлекаем все строки до нашего маркера (это оригинальные системные записи роутера)
