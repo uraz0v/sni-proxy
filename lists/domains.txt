@@ -164,6 +164,13 @@ download.todesktop.com
 downloads.cursor.com
 marketplace.cursorapi.com
 repo42.cursor.sh
+cursor-cdn.com
+www.cursor-cdn.com
+cursorvm.com
+www.cursorvm.com
+us-asia.gcpp.cursor.sh
+us-eu.gcpp.cursor.sh
+us-only.gcpp.cursor.sh
 deepl.app
 www.deepl.app
 api-free.deepl.com
@@ -306,6 +313,7 @@ developerprofiles-pa.googleapis.com
 geller-pa.googleapis.com
 gemini.google
 gemini.google.com
+geminiweb-pa.clients6.google.com
 generativeai.google
 generativelanguage.googleapis.com
 jules.google
@@ -339,6 +347,8 @@ grok.x.com
 grok.x.ai
 x.ai
 www.x.ai
+api.groq.com
+console.groq.com
 guidedhacking.com
 www.guidedhacking.com
 guilded.gg
@@ -633,6 +643,8 @@ opencode.ai
 www.opencode.ai
 openrouter.ai
 www.openrouter.ai
+eu.openrouter.ai
+us.openrouter.ai
 oracle.com
 www.oracle.com
 eu.posthog.com

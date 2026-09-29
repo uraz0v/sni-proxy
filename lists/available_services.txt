@@ -48,6 +48,7 @@ Game8
 Genspark AI
 Google AI
 Grok
+Groq
 Guidedhacking
 Guilded
 Hume AI

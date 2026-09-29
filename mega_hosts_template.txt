@@ -26817,6 +26817,13 @@ YOUR_VPS_IP download.todesktop.com
 YOUR_VPS_IP downloads.cursor.com
 YOUR_VPS_IP marketplace.cursorapi.com
 YOUR_VPS_IP repo42.cursor.sh
+YOUR_VPS_IP cursor-cdn.com
+YOUR_VPS_IP www.cursor-cdn.com
+YOUR_VPS_IP cursorvm.com
+YOUR_VPS_IP www.cursorvm.com
+YOUR_VPS_IP us-asia.gcpp.cursor.sh
+YOUR_VPS_IP us-eu.gcpp.cursor.sh
+YOUR_VPS_IP us-only.gcpp.cursor.sh
 
 # DeepL
 YOUR_VPS_IP deepl.app
@@ -26989,6 +26996,7 @@ YOUR_VPS_IP developerprofiles-pa.googleapis.com
 YOUR_VPS_IP geller-pa.googleapis.com
 YOUR_VPS_IP gemini.google
 YOUR_VPS_IP gemini.google.com
+YOUR_VPS_IP geminiweb-pa.clients6.google.com
 YOUR_VPS_IP generativeai.google
 YOUR_VPS_IP generativelanguage.googleapis.com
 YOUR_VPS_IP jules.google
@@ -27024,6 +27032,10 @@ YOUR_VPS_IP grok.x.com
 YOUR_VPS_IP grok.x.ai
 YOUR_VPS_IP x.ai
 YOUR_VPS_IP www.x.ai
+
+# Groq
+YOUR_VPS_IP api.groq.com
+YOUR_VPS_IP console.groq.com
 
 # Guidedhacking
 YOUR_VPS_IP guidedhacking.com
@@ -27366,6 +27378,8 @@ YOUR_VPS_IP www.opencode.ai
 # OpenRouter AI
 YOUR_VPS_IP openrouter.ai
 YOUR_VPS_IP www.openrouter.ai
+YOUR_VPS_IP eu.openrouter.ai
+YOUR_VPS_IP us.openrouter.ai
 
 # Oracle
 YOUR_VPS_IP oracle.com
