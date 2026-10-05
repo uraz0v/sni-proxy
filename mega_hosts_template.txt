@@ -26602,7 +26602,7 @@ YOUR_VPS_IP www.basecampapi.com
 YOUR_VPS_IP aave.com
 YOUR_VPS_IP www.aave.com
 
-# Adobe
+# Adobe AI
 YOUR_VPS_IP adobe.io
 YOUR_VPS_IP www.adobe.io
 
@@ -26701,7 +26701,7 @@ YOUR_VPS_IP www.canva-apps.com
 YOUR_VPS_IP canva.dev
 YOUR_VPS_IP www.canva.dev
 
-# Camel
+# Camel AI
 YOUR_VPS_IP camelai.com
 YOUR_VPS_IP www.camelai.com
 YOUR_VPS_IP stream.camelai.com
@@ -26710,7 +26710,7 @@ YOUR_VPS_IP stream.camelai.com
 YOUR_VPS_IP capcut.com
 YOUR_VPS_IP www.capcut.com
 
-# Cerebras
+# Cerebras AI
 YOUR_VPS_IP api.cerebras.ai
 YOUR_VPS_IP cerebras.ai
 YOUR_VPS_IP www.cerebras.ai
@@ -26722,7 +26722,7 @@ YOUR_VPS_IP my.chaos.com
 YOUR_VPS_IP ssooauth.chaos.com
 YOUR_VPS_IP www.chaos.com
 
-# ChatGPT (OpenAI)
+# ChatGPT (OpenAI) AI
 YOUR_VPS_IP chatgpt.com
 YOUR_VPS_IP www.chatgpt.com
 YOUR_VPS_IP chatgpt.site
@@ -26758,7 +26758,7 @@ YOUR_VPS_IP assets-configurator.chess.com
 YOUR_VPS_IP chess.com
 YOUR_VPS_IP www.chess.com
 
-# Claude
+# Claude AI
 YOUR_VPS_IP a-api.anthropic.com
 YOUR_VPS_IP a-cdn.anthropic.com
 YOUR_VPS_IP anthropic.com
@@ -26775,6 +26775,8 @@ YOUR_VPS_IP claude.com
 YOUR_VPS_IP www.claude.com
 YOUR_VPS_IP claudemcpclient.com
 YOUR_VPS_IP www.claudemcpclient.com
+YOUR_VPS_IP claudeusercontent.com
+YOUR_VPS_IP www.claudeusercontent.com
 YOUR_VPS_IP console.anthropic.com
 YOUR_VPS_IP downloads.claude.ai
 YOUR_VPS_IP platform.claude.ai
@@ -26876,7 +26878,7 @@ YOUR_VPS_IP www.dell.com
 YOUR_VPS_IP i.dell.com
 YOUR_VPS_IP nexus.dell.com
 
-# Dola
+# Dola AI
 YOUR_VPS_IP cici.com
 YOUR_VPS_IP www.cici.com
 YOUR_VPS_IP dola.com
@@ -26896,7 +26898,7 @@ YOUR_VPS_IP www.dyson.de
 YOUR_VPS_IP dyson.se
 YOUR_VPS_IP www.dyson.se
 
-# ElevenLabs
+# ElevenLabs AI
 YOUR_VPS_IP api.elevenlabs.io
 YOUR_VPS_IP api.us.elevenlabs.io
 YOUR_VPS_IP eleven-public-cdn.elevenlabs.io
@@ -26947,7 +26949,7 @@ YOUR_VPS_IP sub.whoogle.fmhy.net
 YOUR_VPS_IP ui.fmhy.net
 YOUR_VPS_IP whoogle.fmhy.net
 
-# Formula1
+# Formula 1
 YOUR_VPS_IP formula1.com
 YOUR_VPS_IP www.formula1.com
 
@@ -26967,7 +26969,7 @@ YOUR_VPS_IP www.game8.jp
 YOUR_VPS_IP genspark.ai
 YOUR_VPS_IP www.genspark.ai
 
-# Google AI
+# Google Gemini AI
 YOUR_VPS_IP antigravity.google
 YOUR_VPS_IP www.antigravity.google
 YOUR_VPS_IP datastudio.google.com
@@ -26996,6 +26998,7 @@ YOUR_VPS_IP developerprofiles-pa.googleapis.com
 YOUR_VPS_IP geller-pa.googleapis.com
 YOUR_VPS_IP gemini.google
 YOUR_VPS_IP gemini.google.com
+YOUR_VPS_IP geminiweb-pa.clients.google.com
 YOUR_VPS_IP geminiweb-pa.clients6.google.com
 YOUR_VPS_IP generativeai.google
 YOUR_VPS_IP generativelanguage.googleapis.com
@@ -27021,7 +27024,7 @@ YOUR_VPS_IP suggestqueries.google.com
 YOUR_VPS_IP waa-pa.clients6.google.com
 YOUR_VPS_IP webchannel-alkalimakersuite-pa.clients6.google.com
 
-# Grok
+# Grok AI
 YOUR_VPS_IP accounts.x.ai
 YOUR_VPS_IP api.x.ai
 YOUR_VPS_IP assets.grok.com
@@ -27033,7 +27036,7 @@ YOUR_VPS_IP grok.x.ai
 YOUR_VPS_IP x.ai
 YOUR_VPS_IP www.x.ai
 
-# Groq
+# Groq AI
 YOUR_VPS_IP api.groq.com
 YOUR_VPS_IP console.groq.com
 

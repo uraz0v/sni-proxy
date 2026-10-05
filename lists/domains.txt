@@ -134,6 +134,8 @@ claude.com
 www.claude.com
 claudemcpclient.com
 www.claudemcpclient.com
+claudeusercontent.com
+www.claudeusercontent.com
 console.anthropic.com
 downloads.claude.ai
 platform.claude.ai
@@ -313,6 +315,7 @@ developerprofiles-pa.googleapis.com
 geller-pa.googleapis.com
 gemini.google
 gemini.google.com
+geminiweb-pa.clients.google.com
 geminiweb-pa.clients6.google.com
 generativeai.google
 generativelanguage.googleapis.com

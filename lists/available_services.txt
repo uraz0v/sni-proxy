@@ -3,7 +3,7 @@
 Остальные IP-адреса принадлежат сторонним сервисам.
 37Signals
 Aave
-Adobe
+Adobe AI
 Affinity Studio
 Analog
 AMD
@@ -19,13 +19,13 @@ Brave
 Broadcom
 Bike24
 Canva
-Camel
+Camel AI
 Capcut
-Cerebras
+Cerebras AI
 Chaos
-ChatGPT (OpenAI)
+ChatGPT (OpenAI) AI
 Chess
-Claude
+Claude AI
 Clickup
 Coreweave
 Corsair
@@ -35,20 +35,20 @@ Cursor AI
 DeepL
 Deezer
 Dell
-Dola
+Dola AI
 Digikey
 Dyson
-ElevenLabs
+ElevenLabs AI
 Elgato
 Fitbit
 FMHY
-Formula1
+Formula 1
 Framer
 Game8
 Genspark AI
-Google AI
-Grok
-Groq
+Google Gemini AI
+Grok AI
+Groq AI
 Guidedhacking
 Guilded
 Hume AI
