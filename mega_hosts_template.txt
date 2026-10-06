@@ -26982,6 +26982,7 @@ YOUR_VPS_IP notebook.google
 YOUR_VPS_IP www.notebook.google
 YOUR_VPS_IP notebook.google.com
 YOUR_VPS_IP ai.google.dev
+YOUR_VPS_IP aicode.googleapis.com
 YOUR_VPS_IP aisandbox-pa.googleapis.com
 YOUR_VPS_IP aistudio.google.com
 YOUR_VPS_IP aitestkitchen.withgoogle.com
@@ -27372,7 +27373,9 @@ YOUR_VPS_IP notion.so
 YOUR_VPS_IP www.notion.so
 
 # Nvidia
+YOUR_VPS_IP build.nvidia.com
 YOUR_VPS_IP developer.nvidia.com
+YOUR_VPS_IP ngc.nvidia.com
 
 # OpenCode AI
 YOUR_VPS_IP opencode.ai
@@ -27608,7 +27611,6 @@ YOUR_VPS_IP alkali.googleapis.com
 YOUR_VPS_IP cloudaicompanion.googleapis.com
 YOUR_VPS_IP aida.googleapis.com
 YOUR_VPS_IP studiobot.googleapis.com
-YOUR_VPS_IP aicode.googleapis.com
 YOUR_VPS_IP ai.googleapis.com
 YOUR_VPS_IP cloudcode-pa.googleapis.com
 YOUR_VPS_IP aiplatform.googleapis.com

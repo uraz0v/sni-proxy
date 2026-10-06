@@ -299,6 +299,7 @@ notebook.google
 www.notebook.google
 notebook.google.com
 ai.google.dev
+aicode.googleapis.com
 aisandbox-pa.googleapis.com
 aistudio.google.com
 aitestkitchen.withgoogle.com
@@ -641,7 +642,9 @@ notion.com
 www.notion.com
 notion.so
 www.notion.so
+build.nvidia.com
 developer.nvidia.com
+ngc.nvidia.com
 opencode.ai
 www.opencode.ai
 openrouter.ai
@@ -815,7 +818,6 @@ alkali.googleapis.com
 cloudaicompanion.googleapis.com
 aida.googleapis.com
 studiobot.googleapis.com
-aicode.googleapis.com
 ai.googleapis.com
 cloudcode-pa.googleapis.com
 aiplatform.googleapis.com
