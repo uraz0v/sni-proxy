@@ -26811,6 +26811,14 @@ YOUR_VPS_IP api2.cursor.sh
 YOUR_VPS_IP api3.cursor.sh
 YOUR_VPS_IP api4.cursor.sh
 YOUR_VPS_IP api5.cursor.sh
+YOUR_VPS_IP agentn.api2.cursor.sh
+YOUR_VPS_IP agentn.api3.cursor.sh
+YOUR_VPS_IP agentn.api4.cursor.sh
+YOUR_VPS_IP agentn.api5.cursor.sh
+YOUR_VPS_IP agentn.global.api2.cursor.sh
+YOUR_VPS_IP agentn.global.api3.cursor.sh
+YOUR_VPS_IP agentn.global.api4.cursor.sh
+YOUR_VPS_IP agentn.global.api5.cursor.sh
 YOUR_VPS_IP authenticate.cursor.sh
 YOUR_VPS_IP authenticator.cursor.sh
 YOUR_VPS_IP cursor.com
@@ -26823,6 +26831,7 @@ YOUR_VPS_IP cursor-cdn.com
 YOUR_VPS_IP www.cursor-cdn.com
 YOUR_VPS_IP cursorvm.com
 YOUR_VPS_IP www.cursorvm.com
+YOUR_VPS_IP origin.cursor.com
 YOUR_VPS_IP us-asia.gcpp.cursor.sh
 YOUR_VPS_IP us-eu.gcpp.cursor.sh
 YOUR_VPS_IP us-only.gcpp.cursor.sh

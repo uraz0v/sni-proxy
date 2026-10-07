@@ -158,6 +158,14 @@ api2.cursor.sh
 api3.cursor.sh
 api4.cursor.sh
 api5.cursor.sh
+agentn.api2.cursor.sh
+agentn.api3.cursor.sh
+agentn.api4.cursor.sh
+agentn.api5.cursor.sh
+agentn.global.api2.cursor.sh
+agentn.global.api3.cursor.sh
+agentn.global.api4.cursor.sh
+agentn.global.api5.cursor.sh
 authenticate.cursor.sh
 authenticator.cursor.sh
 cursor.com
@@ -170,6 +178,7 @@ cursor-cdn.com
 www.cursor-cdn.com
 cursorvm.com
 www.cursorvm.com
+origin.cursor.com
 us-asia.gcpp.cursor.sh
 us-eu.gcpp.cursor.sh
 us-only.gcpp.cursor.sh
