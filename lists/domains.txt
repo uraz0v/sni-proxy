@@ -93,6 +93,7 @@ www.chatgpt.site
 ab.chatgpt.com
 auth.openai.com
 auth0.openai.com
+bps.openai.com
 platform.openai.com
 cdn.oaistatic.com
 files.oaiusercontent.com
@@ -301,6 +302,8 @@ www.antigravity.google
 datastudio.google.com
 flow.google
 www.flow.google
+flow.google.com
+www.flow.google.com
 flowmusic.app
 www.flowmusic.app
 notebook-pa.googleapis.com
@@ -343,6 +346,7 @@ opal.google
 opal.google.com
 opal.withgoogle.com
 people-pa.clients6.google.com
+playground.google
 proactivebackend-pa.googleapis.com
 robinfrontend-pa.googleapis.com
 signaler-pa.clients6.google.com
@@ -683,6 +687,8 @@ sketchup.com
 www.sketchup.com
 id.trimble.com
 sketchup.trimble.com
+spotify.dev
+www.spotify.dev
 spotify.com
 www.spotify.com
 api.spotify.com

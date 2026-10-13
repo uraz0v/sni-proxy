@@ -374,6 +374,7 @@ YOUR_VPS_IP www.chatgpt.site
 YOUR_VPS_IP ab.chatgpt.com
 YOUR_VPS_IP auth.openai.com
 YOUR_VPS_IP auth0.openai.com
+YOUR_VPS_IP bps.openai.com
 YOUR_VPS_IP platform.openai.com
 YOUR_VPS_IP cdn.oaistatic.com
 YOUR_VPS_IP files.oaiusercontent.com
@@ -628,6 +629,8 @@ YOUR_VPS_IP www.antigravity.google
 YOUR_VPS_IP datastudio.google.com
 YOUR_VPS_IP flow.google
 YOUR_VPS_IP www.flow.google
+YOUR_VPS_IP flow.google.com
+YOUR_VPS_IP www.flow.google.com
 YOUR_VPS_IP flowmusic.app
 YOUR_VPS_IP www.flowmusic.app
 YOUR_VPS_IP notebook-pa.googleapis.com
@@ -670,6 +673,7 @@ YOUR_VPS_IP opal.google
 YOUR_VPS_IP opal.google.com
 YOUR_VPS_IP opal.withgoogle.com
 YOUR_VPS_IP people-pa.clients6.google.com
+YOUR_VPS_IP playground.google
 YOUR_VPS_IP proactivebackend-pa.googleapis.com
 YOUR_VPS_IP robinfrontend-pa.googleapis.com
 YOUR_VPS_IP signaler-pa.clients6.google.com
@@ -1078,6 +1082,8 @@ YOUR_VPS_IP id.trimble.com
 YOUR_VPS_IP sketchup.trimble.com
 
 # Spotify
+YOUR_VPS_IP spotify.dev
+YOUR_VPS_IP www.spotify.dev
 YOUR_VPS_IP spotify.com
 YOUR_VPS_IP www.spotify.com
 YOUR_VPS_IP api.spotify.com
