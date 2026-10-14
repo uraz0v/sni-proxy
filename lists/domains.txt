@@ -336,6 +336,7 @@ jules.google
 jules.google.com
 labs.google
 labs.google.com
+labstailwind.pa.googleapis.com
 lookerstudio.google.com
 makersuite.google.com
 notebooklm.google

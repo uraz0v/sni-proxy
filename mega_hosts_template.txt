@@ -663,6 +663,7 @@ YOUR_VPS_IP jules.google
 YOUR_VPS_IP jules.google.com
 YOUR_VPS_IP labs.google
 YOUR_VPS_IP labs.google.com
+YOUR_VPS_IP labstailwind.pa.googleapis.com
 YOUR_VPS_IP lookerstudio.google.com
 YOUR_VPS_IP makersuite.google.com
 YOUR_VPS_IP notebooklm.google
