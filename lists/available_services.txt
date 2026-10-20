@@ -79,6 +79,7 @@ Posthog
 Pump.fun
 Reve
 Qwant
+Slack
 Scribd
 SketchUp
 Spotify

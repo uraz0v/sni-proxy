@@ -624,6 +624,11 @@ YOUR_VPS_IP genspark.ai
 YOUR_VPS_IP www.genspark.ai
 
 # Google Gemini AI
+YOUR_VPS_IP aida.googleapis.com
+YOUR_VPS_IP antigravity-pa.googleapis.com
+YOUR_VPS_IP antigravity-unleash.goog
+YOUR_VPS_IP www.antigravity-unleash.goog
+YOUR_VPS_IP antigravity.googleapis.com
 YOUR_VPS_IP antigravity.google
 YOUR_VPS_IP www.antigravity.google
 YOUR_VPS_IP datastudio.google.com
@@ -1070,6 +1075,20 @@ YOUR_VPS_IP www.reve.com
 YOUR_VPS_IP qwant.com
 YOUR_VPS_IP www.qwant.com
 
+# Slack
+YOUR_VPS_IP slack.com
+YOUR_VPS_IP www.slack.com
+YOUR_VPS_IP slackb.com
+YOUR_VPS_IP www.slackb.com
+YOUR_VPS_IP slack-core.com
+YOUR_VPS_IP www.slack-core.com
+YOUR_VPS_IP slack-edge.com
+YOUR_VPS_IP www.slack-edge.com
+YOUR_VPS_IP slack-files.com
+YOUR_VPS_IP www.slack-files.com
+YOUR_VPS_IP slack-imgs.com
+YOUR_VPS_IP www.slack-imgs.com
+
 # Scribd
 YOUR_VPS_IP scribd.com
 YOUR_VPS_IP www.scribd.com
@@ -1269,7 +1288,6 @@ YOUR_VPS_IP avatars.githubusercontent.com
 # ==============================
 YOUR_VPS_IP alkali.googleapis.com
 YOUR_VPS_IP cloudaicompanion.googleapis.com
-YOUR_VPS_IP aida.googleapis.com
 YOUR_VPS_IP studiobot.googleapis.com
 YOUR_VPS_IP ai.googleapis.com
 YOUR_VPS_IP cloudcode-pa.googleapis.com
