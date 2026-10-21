@@ -28,3 +28,9 @@ iot.arduino.cc
 auth.arduino.cc
 
 # Если нужно, добавляйте свои ниже:
+# === START: [2026-10-21] Добавление WhatsApp Web в список проксирования ===
+web.whatsapp.com
+whatsapp.com
+whatsapp.net
+wa.me
+# === END: [2026-10-21] Добавление WhatsApp Web в список проксирования ===

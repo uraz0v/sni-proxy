@@ -1300,3 +1300,7 @@ YOUR_VPS_IP cloud.arduino.cc
 YOUR_VPS_IP api2.arduino.cc
 YOUR_VPS_IP iot.arduino.cc
 YOUR_VPS_IP auth.arduino.cc
+YOUR_VPS_IP web.whatsapp.com
+YOUR_VPS_IP whatsapp.com
+YOUR_VPS_IP whatsapp.net
+YOUR_VPS_IP wa.me

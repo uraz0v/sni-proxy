@@ -861,3 +861,7 @@ cloud.arduino.cc
 api2.arduino.cc
 iot.arduino.cc
 auth.arduino.cc
+web.whatsapp.com
+whatsapp.com
+whatsapp.net
+wa.me
