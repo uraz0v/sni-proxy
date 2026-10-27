@@ -58,6 +58,10 @@ case "$XUI_PATH" in
     *) XUI_PATH="$XUI_PATH/" ;;
 esac
 sed -i "s|__XUI_BASE_PATH__|$XUI_PATH|g" /etc/nginx/nginx.conf
+
+# Настройка Reality SNI из переменной окружения
+REALITY_SNI="${REALITY_SNI:-www.nvidia.com}"
+sed -i "s|__REALITY_SNI__|$REALITY_SNI|g" /etc/nginx/nginx.conf
 # === END: [2026-10-28] Автоматическое обнаружение SSL-сертификатов и подготовка ACME ===
 
 # Запуск Nginx

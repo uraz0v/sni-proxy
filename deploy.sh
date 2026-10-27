@@ -1,17 +1,21 @@
 #!/bin/bash
 
+# === START: [2026-10-28] Комплексный деплой: SNI-прокси + 3X-UI в Docker + автогенерация клиента ===
 echo "Setting system timezone to Asia/Yekaterinburg..."
-timedatectl set-timezone Asia/Yekaterinburg || echo "Failed to set timezone. Ignoring."
+timedatectl set-timezone Asia/Yekaterinburg 2>/dev/null || echo "Failed to set timezone. Ignoring."
 
 echo "Installing Docker if not present..."
-docker compose version || (curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh)
+docker compose version >/dev/null 2>&1 || (curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh && rm -f get-docker.sh)
 
 echo "Updating lists..."
 bash update_lists.sh
 
-echo "Deploying SNI Proxy..."
+echo "Deploying SNI Proxy and 3X-UI containers..."
+mkdir -p db
 docker compose up -d --force-recreate
-echo "✅ SNI Proxy successfully deployed and running on port 443!"
+
+echo "Initializing 3X-UI and generating client configuration..."
+python3 init_xui.py
 
 echo "Setting up auto-update cron job on VPS..."
 if ! crontab -l 2>/dev/null | grep -q "update_lists.sh"; then
@@ -20,3 +24,4 @@ if ! crontab -l 2>/dev/null | grep -q "update_lists.sh"; then
 else
     echo "Cron job already exists."
 fi
+# === END: [2026-10-28] Комплексный деплой: SNI-прокси + 3X-UI в Docker + автогенерация клиента ===
