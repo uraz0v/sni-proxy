@@ -10,5 +10,12 @@ services:
       - ./lists/banned_ips.txt:/etc/nginx/lists/banned_ips.txt:ro
       - ./entrypoint.sh:/entrypoint.sh:ro
       - ./nginx.conf:/etc/nginx/nginx.conf.template:ro
+# === START: [2026-10-28] Монтирование SSL сертификатов, сайта-маскировки и ACME ===
+      - /root/cert:/etc/nginx/certs:ro
+      - ./camouflage:/var/www/camouflage:ro
+      - /var/www/certbot:/var/www/certbot:rw
+# === END: [2026-10-28] Монтирование SSL сертификатов, сайта-маскировки и ACME ===
+    environment:
+      - XUI_PATH=${XUI_PATH:-/xui/}
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
     restart: unless-stopped
