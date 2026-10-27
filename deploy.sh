@@ -1,6 +1,19 @@
 #!/bin/bash
 
 # === START: [2026-10-28] Комплексный деплой: SNI-прокси + 3X-UI в Docker + автогенерация клиента ===
+set -e
+
+# Переход в директорию скрипта
+cd "$(dirname "$0")"
+
+DOMAIN_ARG="$1"
+
+# 1. Проверка и генерация .env файла при его отсутствии
+if [ ! -f ".env" ]; then
+    echo "⚙️  Файл .env не найден. Запуск генерации параметров..."
+    bash generate_env.sh "$DOMAIN_ARG"
+fi
+
 echo "Setting system timezone to Asia/Yekaterinburg..."
 timedatectl set-timezone Asia/Yekaterinburg 2>/dev/null || echo "Failed to set timezone. Ignoring."
 
@@ -9,6 +22,9 @@ docker compose version >/dev/null 2>&1 || (curl -fsSL https://get.docker.com -o 
 
 echo "Updating lists..."
 bash update_lists.sh
+
+echo "Setting up SSL certificate via acme.sh..."
+bash setup_ssl.sh
 
 echo "Deploying SNI Proxy and 3X-UI containers..."
 mkdir -p db

@@ -151,17 +151,37 @@ def configure_3xui():
     con.commit()
 
     # Проверка учетных данных админа
+    env_user = get_config_val("XUI_USER", None, env_vars)
+    env_pass = get_config_val("XUI_PASSWORD", get_config_val("XUI_PASS", None, env_vars), env_vars)
+
     admin_user = "admin"
     admin_pass = "admin"
-    user_row = cur.execute("SELECT username, password FROM users LIMIT 1").fetchone()
-    if user_row:
-        admin_user, admin_pass = user_row[0], user_row[1]
+
+    if env_user and env_pass:
+        admin_user = env_user
+        admin_pass = env_pass
+        # Применяем учетные данные через утилиту x-ui внутри контейнера
+        try:
+            subprocess.run(
+                ["docker", "exec", "3x_ui", "/app/x-ui", "setting", "-username", admin_user, "-password", admin_pass],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5
+            )
+        except Exception:
+            pass
     else:
-        # Создаем администратора, если таблицы пользователей пуста
-        admin_user = get_config_val("XUI_USER", "admin", env_vars)
-        admin_pass = get_config_val("XUI_PASS", secrets.token_urlsafe(10), env_vars)
-        cur.execute("INSERT INTO users (username, password) VALUES (?, ?)", (admin_user, admin_pass))
-        con.commit()
+        user_row = cur.execute("SELECT username, password FROM users LIMIT 1").fetchone()
+        if user_row:
+            admin_user = user_row[0]
+            db_pass = user_row[1]
+            if db_pass.startswith("$2a$") or db_pass.startswith("$2b$"):
+                admin_pass = "(пароль сохранен в базе x-ui; для смены задайте XUI_PASSWORD в .env)"
+            else:
+                admin_pass = db_pass
+        else:
+            admin_user = "admin"
+            admin_pass = secrets.token_urlsafe(10)
+            cur.execute("INSERT INTO users (username, password) VALUES (?, ?)", (admin_user, admin_pass))
+            con.commit()
 
     # 2. Проверка и создание VLESS-Reality инбаунда
     inbound = cur.execute("SELECT id, settings, stream_settings FROM inbounds WHERE port = 8443").fetchone()
