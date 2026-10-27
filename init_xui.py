@@ -108,15 +108,34 @@ def wait_for_db(db_path, max_wait=20):
         time.sleep(1)
     return False
 
+def set_setting(cur, key, val):
+    cur.execute("SELECT id FROM settings WHERE key = ?", (key,))
+    row = cur.fetchone()
+    if row:
+        cur.execute("UPDATE settings SET value = ? WHERE id = ?", (val, row[0]))
+    else:
+        cur.execute("INSERT INTO settings (key, value) VALUES (?, ?)", (key, val))
+
 def configure_3xui():
     env_vars = load_env_file()
 
-    # Параметры путей и Reality
+    # Параметры путей, Reality и домена
     raw_xui_path = get_config_val("XUI_PATH", "/xui/", env_vars)
     xui_path = "/" + raw_xui_path.strip("/") + "/"
+    raw_sub_path = get_config_val("SUB_PATH", "/sub/", env_vars)
+    sub_path = "/" + raw_sub_path.strip("/") + "/"
     reality_sni = get_config_val("REALITY_SNI", "www.nvidia.com", env_vars)
     reality_target = get_config_val("REALITY_TARGET", f"{reality_sni}:443", env_vars)
     server_domain = get_server_domain(get_config_val("SERVER_DOMAIN", None, env_vars))
+
+    # Определение имени ноды и клиента из 3-го уровня домена (например, sw из sw.4wan.ru)
+    domain_parts = server_domain.split('.')
+    if len(domain_parts) >= 3:
+        node_name = domain_parts[0]
+    elif domain_parts and not server_domain.replace('.', '').isdigit():
+        node_name = domain_parts[0]
+    else:
+        node_name = "node"
 
     # Путь к БД: сначала проверяем локальный ./db/x-ui.db, затем /etc/x-ui/x-ui.db
     db_candidates = ["db/x-ui.db", "./db/x-ui.db", "/etc/x-ui/x-ui.db"]
@@ -135,16 +154,28 @@ def configure_3xui():
     con = sqlite3.connect(db_path)
     cur = con.cursor()
 
-    # 1. Настройка таблицы settings (изоляция панели)
-    print("[*] Обновление настроек панели 3X-UI...")
+    # 1. Настройка таблицы settings (изоляция панели и подписок)
+    print("[*] Обновление настроек панели и подписок 3X-UI...")
     cur.execute("SELECT value FROM settings WHERE key = 'webListen'")
     prev_listen = cur.fetchone()
     need_restart = False
     if not prev_listen or prev_listen[0] != '127.0.0.1':
         need_restart = True
 
-    for s_key, s_val in [("webListen", "127.0.0.1"), ("webPort", "53273"), ("webBasePath", xui_path), ("webCertFile", ""), ("webKeyFile", "")]:
-        cur.execute("INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (s_key, s_val))
+    settings_to_apply = [
+        ("webListen", "127.0.0.1"),
+        ("webPort", "53273"),
+        ("webBasePath", xui_path),
+        ("webCertFile", ""),
+        ("webKeyFile", ""),
+        ("subListen", "127.0.0.1"),
+        ("subPort", "2096"),
+        ("subPath", sub_path),
+        ("subURI", f"https://{server_domain}{sub_path}"),
+        ("subEnable", "true"),
+    ]
+    for s_key, s_val in settings_to_apply:
+        set_setting(cur, s_key, s_val)
     con.commit()
 
     # Применяем настройки через официальный CLI x-ui внутри контейнера
@@ -191,24 +222,32 @@ def configure_3xui():
             con.commit()
 
     # 2. Проверка и создание VLESS-Reality инбаунда
-    inbound = cur.execute("SELECT id, settings, stream_settings FROM inbounds WHERE port = 8443").fetchone()
+    inbound = cur.execute("SELECT id, settings, stream_settings, remark FROM inbounds WHERE port = 8443").fetchone()
+    if not inbound:
+        inbound = cur.execute("SELECT id, settings, stream_settings, remark FROM inbounds LIMIT 1").fetchone()
 
-    need_restart = False
     client_uuid = None
     public_key = None
     short_id = None
     flow = "xtls-rprx-vision"
-    email = "client1"
+    email = node_name
+    sub_id = secrets.token_hex(8)
 
     if inbound:
-        print("[*] Найден существующий VLESS-Reality инбаунд (порт 8443).")
-        inbound_id, settings_json, stream_json = inbound[0], inbound[1], inbound[2]
+        print(f"[*] Найден существующий VLESS-Reality инбаунд (ID {inbound[0]}).")
+        inbound_id, settings_json, stream_json, current_remark = inbound[0], inbound[1], inbound[2], inbound[3]
         try:
             s_data = json.loads(settings_json)
             client = s_data.get("clients", [{}])[0]
             client_uuid = client.get("id")
             flow = client.get("flow", "xtls-rprx-vision")
-            email = client.get("email", "client1")
+            if client.get("subId"):
+                sub_id = client.get("subId")
+            else:
+                client["subId"] = sub_id
+                s_data["clients"][0] = client
+                cur.execute("UPDATE inbounds SET settings = ? WHERE id = ?", (json.dumps(s_data), inbound_id))
+                con.commit()
 
             st_data = json.loads(stream_json)
             r_settings = st_data.get("realitySettings", {})
@@ -218,16 +257,53 @@ def configure_3xui():
             
             # Актуализируем SNI если изменился
             current_snis = r_settings.get("serverNames", [])
+            inbound_dirty = False
             if reality_sni not in current_snis:
                 print(f"[*] Обновление Reality SNI на: {reality_sni}")
                 r_settings["serverNames"] = [reality_sni]
                 r_settings["target"] = reality_target
                 st_data["realitySettings"] = r_settings
+                inbound_dirty = True
+
+            # Обеспечиваем externalProxy для корректной генерации порта 443 в подписках
+            ext_proxies = st_data.get("externalProxy", [])
+            expected_ext = [{"dest": server_domain, "port": 443, "remark": "", "forceTls": "same"}]
+            if ext_proxies != expected_ext:
+                print(f"[*] Установка externalProxy на {server_domain}:443 в streamSettings")
+                st_data["externalProxy"] = expected_ext
+                inbound_dirty = True
+
+            if inbound_dirty:
                 cur.execute("UPDATE inbounds SET stream_settings = ? WHERE id = ?", (json.dumps(st_data), inbound_id))
                 con.commit()
                 need_restart = True
+
+            # Обновление remark инбаунда, имени клиента и изоляции порта
+            if current_remark != node_name:
+                print(f"[*] Обновление примечания инбаунда на: {node_name}")
+                cur.execute("UPDATE inbounds SET remark = ? WHERE id = ?", (node_name, inbound_id))
+                need_restart = True
+
+            # Гарантируем, что инбаунд слушает строго 127.0.0.1:8443
+            cur.execute("""
+                UPDATE inbounds 
+                SET port = 8443, listen = '127.0.0.1', share_addr_strategy = '', share_addr = ''
+                WHERE id = ?
+            """, (inbound_id,))
+
+            # Обновляем имя клиента в settings_json, clients и client_traffics
+            if client.get("email") != node_name:
+                client["email"] = node_name
+                s_data["clients"][0] = client
+                cur.execute("UPDATE inbounds SET settings = ? WHERE id = ?", (json.dumps(s_data), inbound_id))
+                cur.execute("UPDATE clients SET email = ? WHERE id = 1 OR sub_id = ?", (node_name, sub_id))
+                cur.execute("UPDATE client_traffics SET email = ? WHERE inbound_id = ?", (node_name, inbound_id))
+                con.commit()
+                need_restart = True
+
+            con.commit()
         except Exception as e:
-            print(f"[!] Ошибка парсинга инбаунда: {e}")
+            print(f"[!] Ошибка обработки существующего инбаунда: {e}")
 
     if not client_uuid or not public_key:
         print("[*] Создание нового VLESS-Reality инбаунда с нуля...")
@@ -241,7 +317,7 @@ def configure_3xui():
             "clients": [{
                 "id": client_uuid,
                 "flow": flow,
-                "email": email,
+                "email": node_name,
                 "enable": True,
                 "expiryTime": 0,
                 "totalGB": 0,
@@ -256,6 +332,7 @@ def configure_3xui():
         stream_settings_dict = {
             "network": "tcp",
             "security": "reality",
+            "externalProxy": [{"dest": server_domain, "port": 443, "remark": "", "forceTls": "same"}],
             "realitySettings": {
                 "show": False,
                 "xver": 0,
@@ -290,7 +367,7 @@ def configure_3xui():
                 listen, port, protocol, settings, stream_settings, tag, sniffing
             ) VALUES (?, 0, 0, 0, ?, 1, 0, '127.0.0.1', 8443, 'vless', ?, ?, 'in-8443-tcp', ?)
         """, (
-            1, "VLESS-Reality", json.dumps(settings_dict),
+            1, node_name, json.dumps(settings_dict),
             json.dumps(stream_settings_dict), json.dumps(sniffing_dict)
         ))
         inbound_id = cur.lastrowid
@@ -300,7 +377,7 @@ def configure_3xui():
         cur.execute("""
             INSERT OR IGNORE INTO clients (email, sub_id, uuid, created_at, updated_at)
             VALUES (?, ?, ?, ?, ?)
-        """, (email, sub_id, client_uuid, now_ms, now_ms))
+        """, (node_name, sub_id, client_uuid, now_ms, now_ms))
         client_id = cur.lastrowid or 1
 
         cur.execute("""
@@ -311,7 +388,7 @@ def configure_3xui():
         cur.execute("""
             INSERT OR IGNORE INTO client_traffics (inbound_id, enable, email, up, down, expiry_time, total)
             VALUES (?, 1, ?, 0, 0, 0, 0)
-        """, (inbound_id, email))
+        """, (inbound_id, node_name))
 
         con.commit()
         need_restart = True
@@ -324,20 +401,22 @@ def configure_3xui():
         subprocess.run(["docker", "restart", "3x_ui"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         time.sleep(2)
 
-    # 3. Генерация клиентской ссылки VLESS Reality
-    remark = f"{server_domain}-Reality"
+    # 3. Генерация клиентских ссылок (VLESS Reality и Subscription)
     vless_link = (
         f"vless://{client_uuid}@{server_domain}:443"
         f"?security=reality&encryption=none&pbk={public_key}&headerType=none"
-        f"&fp=chrome&type=tcp&flow={flow}&sni={reality_sni}&sid={short_id}&spx=%2F#{remark}"
+        f"&fp=chrome&type=tcp&flow={flow}&sni={reality_sni}&sid={short_id}&spx=%2F#{node_name}"
     )
 
+    sub_link = f"https://{server_domain}{sub_path}{sub_id}"
     panel_url = f"https://{server_domain}{xui_path}"
 
     # Сохраняем в файл client_vless.txt
     with open("client_vless.txt", "w", encoding="utf-8") as f:
         f.write("# === Готовая ссылка подключения VLESS Reality ===\n")
         f.write(vless_link + "\n\n")
+        f.write("# === Ссылка подписки (Subscription URL) ===\n")
+        f.write(sub_link + "\n\n")
         f.write(f"# Панель управления 3X-UI: {panel_url}\n")
         f.write(f"# Логин: {admin_user}\n")
         f.write(f"# Пароль: {admin_pass}\n")
@@ -352,11 +431,15 @@ def configure_3xui():
     print(f"👤 Логин:           {admin_user}")
     print(f"🔑 Пароль:          {admin_pass}")
     print("\n" + "-" * box_width)
-    print("🚀 ВАША ГОТОВАЯ ССЫЛКА ДЛЯ КЛИЕНТА (Happ, Streisand, v2rayNG, Hiddify, Nekobox):")
+    print("📡 ССЫЛКА НА ПОДПИСКУ (Рекомендуется для Happ, Streisand, v2rayNG, Hiddify):")
+    print("-" * box_width)
+    print(f"\n{sub_link}\n")
+    print("-" * box_width)
+    print("🚀 ПРЯМАЯ ССЫЛКА ДЛЯ КЛИЕНТА (VLESS Reality):")
     print("-" * box_width)
     print(f"\n{vless_link}\n")
     print("-" * box_width)
-    print("💾 Ссылка и реквизиты также сохранены в файл: client_vless.txt")
+    print("💾 Ссылки и реквизиты сохранены в файл: client_vless.txt")
     print("=" * box_width + "\n")
 
 if __name__ == "__main__":

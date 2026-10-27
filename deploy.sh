@@ -29,6 +29,19 @@ elif command -v ufw >/dev/null 2>&1 && ufw status 2>/dev/null | grep -qw "active
     ufw allow 443/tcp >/dev/null 2>&1 || true
 fi
 
+# === START: [2026-10-28] Отключение службы Cockpit на RHEL/AlmaLinux/CentOS ===
+# Cockpit по умолчанию слушает порт 9090 и расходует системные ресурсы
+if systemctl is-active --quiet cockpit.socket 2>/dev/null || systemctl is-enabled --quiet cockpit.socket 2>/dev/null; then
+    echo "Disabling and stopping Cockpit (port 9090)..."
+    systemctl stop cockpit.socket cockpit.service 2>/dev/null || true
+    systemctl disable cockpit.socket cockpit.service 2>/dev/null || true
+    if command -v firewall-cmd >/dev/null 2>&1 && systemctl is-active --quiet firewalld 2>/dev/null; then
+        firewall-cmd --permanent --remove-service=cockpit >/dev/null 2>&1 || true
+        firewall-cmd --reload >/dev/null 2>&1 || true
+    fi
+fi
+# === END: [2026-10-28] Отключение службы Cockpit на RHEL/AlmaLinux/CentOS ===
+
 # 1. Проверка и генерация .env файла при его отсутствии
 if [ ! -f ".env" ]; then
     echo "⚙️  Файл .env не найден. Запуск генерации параметров..."

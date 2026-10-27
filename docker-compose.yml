@@ -17,6 +17,9 @@ services:
 # === END: [2026-10-28] Монтирование SSL сертификатов, сайта-маскировки и ACME ===
     environment:
       - XUI_PATH=${XUI_PATH:-/xui/}
+# === START: [2026-10-28] Передача SUB_PATH в контейнер sni_proxy ===
+      - SUB_PATH=${SUB_PATH:-/sub/}
+# === END: [2026-10-28] Передача SUB_PATH в контейнер sni_proxy ===
       - REALITY_SNI=${REALITY_SNI:-www.nvidia.com}
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
     restart: unless-stopped

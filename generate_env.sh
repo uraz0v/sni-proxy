@@ -68,6 +68,13 @@ RAND_PATH=$(LC_ALL=C tr -dc 'a-zA-Z0-9' </dev/urandom 2>/dev/null | head -c 16 |
 XUI_PATH="/${RAND_PATH}/"
 echo "✓ Секретный путь панели: $XUI_PATH"
 
+# === START: [2026-10-28] Генерация секретного пути для подписки 3X-UI ===
+# Секретный путь для сервиса подписок 3X-UI (12 символов, скрыт от зондов ТСПУ)
+RAND_SUB=$(LC_ALL=C tr -dc 'a-zA-Z0-9' </dev/urandom 2>/dev/null | head -c 12 || openssl rand -hex 6)
+SUB_PATH="/s_${RAND_SUB}/"
+echo "✓ Секретный путь подписки: $SUB_PATH"
+# === END: [2026-10-28] Генерация секретного пути для подписки 3X-UI ===
+
 # 3. Домен маскировки для Reality
 REALITY_SNI="www.nvidia.com"
 echo "✓ Маскировочный SNI Reality: $REALITY_SNI"
@@ -99,6 +106,11 @@ SERVER_DOMAIN=${SERVER_DOMAIN}
 # Секретный путь для входа в панель 3X-UI через порт 443
 XUI_PATH=${XUI_PATH}
 
+# === START: [2026-10-28] Секретный путь для сервиса подписок ===
+# Секретный путь для сервиса подписок 3X-UI (скрыт от активного зондирования ТСПУ)
+SUB_PATH=${SUB_PATH}
+# === END: [2026-10-28] Секретный путь для сервиса подписок ===
+
 # Маскировочный домен для Xray Reality
 REALITY_SNI=${REALITY_SNI}
 
@@ -114,8 +126,9 @@ chmod 600 "$ENV_FILE"
 
 echo "=========================================================="
 echo "✅ Конфигурация успешно сохранена в $ENV_FILE"
-echo "   Путь панели: https://${SERVER_DOMAIN}${XUI_PATH}"
-echo "   Логин:       ${XUI_USER}"
-echo "   Пароль:      ${XUI_PASSWORD}"
+echo "   Путь панели:   https://${SERVER_DOMAIN}${XUI_PATH}"
+echo "   Путь подписки: https://${SERVER_DOMAIN}${SUB_PATH}<subId>"
+echo "   Логин:         ${XUI_USER}"
+echo "   Пароль:        ${XUI_PASSWORD}"
 echo "=========================================================="
 # # === END: [2026-10-28] Генерация параметров и создание файла .env ===

@@ -63,6 +63,20 @@ case "$XUI_PATH" in
 esac
 sed -i "s|__XUI_BASE_PATH__|$XUI_PATH|g" /etc/nginx/nginx.conf
 
+# === START: [2026-10-28] Подстановка секретного пути подписки 3X-UI ===
+# Настройка пути подписки 3X-UI из переменной окружения
+SUB_PATH="${SUB_PATH:-/sub/}"
+case "$SUB_PATH" in
+    /*) ;;
+    *) SUB_PATH="/$SUB_PATH" ;;
+esac
+case "$SUB_PATH" in
+    */) ;;
+    *) SUB_PATH="$SUB_PATH/" ;;
+esac
+sed -i "s|__SUB_BASE_PATH__|$SUB_PATH|g" /etc/nginx/nginx.conf
+# === END: [2026-10-28] Подстановка секретного пути подписки 3X-UI ===
+
 # Настройка Reality SNI из переменной окружения
 REALITY_SNI="${REALITY_SNI:-www.nvidia.com}"
 sed -i "s|__REALITY_SNI__|$REALITY_SNI|g" /etc/nginx/nginx.conf
