@@ -39,7 +39,22 @@ echo "Setting system timezone to Asia/Yekaterinburg..."
 timedatectl set-timezone Asia/Yekaterinburg 2>/dev/null || echo "Failed to set timezone. Ignoring."
 
 echo "Installing Docker if not present..."
-docker compose version >/dev/null 2>&1 || (curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh && rm -f get-docker.sh)
+if ! docker compose version >/dev/null 2>&1; then
+    if command -v dnf >/dev/null 2>&1 || command -v yum >/dev/null 2>&1; then
+        echo "Configuring Docker CE repository for RHEL/AlmaLinux/CentOS/Rocky..."
+        rpm --import https://download.docker.com/linux/centos/gpg 2>/dev/null || true
+        curl -fsSL https://download.docker.com/linux/centos/docker-ce.repo -o /etc/yum.repos.d/docker-ce.repo
+        if command -v dnf >/dev/null 2>&1; then
+            dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+        else
+            yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+        fi
+        systemctl enable --now docker 2>/dev/null || true
+    else
+        curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh && rm -f get-docker.sh
+        systemctl enable --now docker 2>/dev/null || true
+    fi
+fi
 
 echo "Updating lists..."
 bash update_lists.sh
