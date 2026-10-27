@@ -143,12 +143,19 @@ def configure_3xui():
     if not prev_listen or prev_listen[0] != '127.0.0.1':
         need_restart = True
 
-    cur.execute("UPDATE settings SET value = '127.0.0.1' WHERE key = 'webListen'")
-    cur.execute("UPDATE settings SET value = '53273' WHERE key = 'webPort'")
-    cur.execute("UPDATE settings SET value = ? WHERE key = 'webBasePath'", (xui_path,))
-    cur.execute("UPDATE settings SET value = '' WHERE key = 'webCertFile'")
-    cur.execute("UPDATE settings SET value = '' WHERE key = 'webKeyFile'")
+    for s_key, s_val in [("webListen", "127.0.0.1"), ("webPort", "53273"), ("webBasePath", xui_path), ("webCertFile", ""), ("webKeyFile", "")]:
+        cur.execute("INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value", (s_key, s_val))
     con.commit()
+
+    # Применяем настройки через официальный CLI x-ui внутри контейнера
+    try:
+        subprocess.run(
+            ["docker", "exec", "3x_ui", "/app/x-ui", "setting", "-port", "53273", "-listenIP", "127.0.0.1", "-webBasePath", xui_path],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5
+        )
+    except Exception:
+        pass
+    need_restart = True
 
     # Проверка учетных данных админа
     env_user = get_config_val("XUI_USER", None, env_vars)
