@@ -11,10 +11,10 @@ DOMAIN_ARG="$1"
 # Установка базовых утилит на чистой ОС
 echo "Ensuring essential system packages are installed..."
 if command -v dnf >/dev/null 2>&1; then
-    dnf install -y curl python3 openssl tar socat cronie >/dev/null 2>&1 || true
+    dnf install -y git curl python3 openssl tar socat cronie >/dev/null 2>&1 || true
     systemctl enable --now crond 2>/dev/null || true
 elif command -v apt-get >/dev/null 2>&1; then
-    apt-get update -qq >/dev/null 2>&1 && apt-get install -y -qq curl python3 openssl tar socat cron >/dev/null 2>&1 || true
+    apt-get update -qq >/dev/null 2>&1 && apt-get install -y -qq git curl python3 openssl tar socat cron >/dev/null 2>&1 || true
     systemctl enable --now cron 2>/dev/null || true
 fi
 
