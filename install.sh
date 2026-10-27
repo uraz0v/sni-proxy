@@ -2,6 +2,7 @@
 
 # === START: [2026-10-28] Единый онлайн-установщик комплекса SNI-прокси и 3X-UI ===
 set -e
+trap '' HUP
 
 REPO_URL="https://github.com/uraz0v/sni-proxy.git"
 INSTALL_DIR="/opt/sni-proxy"
