@@ -79,9 +79,19 @@ fi
 echo "✓ acme.sh готов: $ACME_BIN"
 "$ACME_BIN" --set-default-ca --server letsencrypt >/dev/null 2>&1 || true
 
-# 2. Подготовка каталогов
+# 2. Подготовка каталогов и fallback SSL
 mkdir -p /var/www/certbot
 mkdir -p "$CERT_DIR"
+mkdir -p /root/cert/fallback
+
+# Если в /root/cert нет ни одного сертификата, создаем временный на хосте
+if [ -z "$(find /root/cert -type f -name 'fullchain.pem' 2>/dev/null)" ]; then
+    echo "📄 Создание временного SSL-сертификата для первичного запуска Nginx..."
+    openssl req -x509 -nodes -days 1 -newkey rsa:2048 \
+        -keyout /root/cert/fallback/privkey.pem \
+        -out /root/cert/fallback/fullchain.pem \
+        -subj "/CN=temporary" 2>/dev/null || true
+fi
 
 # 3. Обеспечение работы Nginx на 80 порту для ACME-челленджа
 echo "🌐 Запуск контейнера Nginx для прохождения проверки домена..."

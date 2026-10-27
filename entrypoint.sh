@@ -41,10 +41,14 @@ fi
 
 if [ "$CERT_FOUND" -eq 0 ] && [ ! -f /etc/nginx/ssl_active/fullchain.pem ]; then
     # Резервный самоподписанный сертификат для первичного старта
+    if ! command -v openssl >/dev/null 2>&1; then
+        echo "[*] Installing openssl in container for fallback certificate..."
+        apk add --no-cache openssl >/dev/null 2>&1 || true
+    fi
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout /etc/nginx/ssl_active/privkey.pem \
         -out /etc/nginx/ssl_active/fullchain.pem \
-        -subj "/CN=localhost" 2>/dev/null
+        -subj "/CN=localhost" 2>/dev/null || true
 fi
 
 # Настройка пути веб-панели 3X-UI из переменной окружения

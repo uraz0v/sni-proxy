@@ -8,6 +8,27 @@ cd "$(dirname "$0")"
 
 DOMAIN_ARG="$1"
 
+# Установка базовых утилит на чистой ОС
+echo "Ensuring essential system packages are installed..."
+if command -v dnf >/dev/null 2>&1; then
+    dnf install -y curl python3 openssl tar socat cronie >/dev/null 2>&1 || true
+    systemctl enable --now crond 2>/dev/null || true
+elif command -v apt-get >/dev/null 2>&1; then
+    apt-get update -qq >/dev/null 2>&1 && apt-get install -y -qq curl python3 openssl tar socat cron >/dev/null 2>&1 || true
+    systemctl enable --now cron 2>/dev/null || true
+fi
+
+# Открытие портов HTTP (80) и HTTPS (443) в фаерволе
+if command -v firewall-cmd >/dev/null 2>&1 && systemctl is-active --quiet firewalld 2>/dev/null; then
+    echo "Opening HTTP and HTTPS in firewalld..."
+    firewall-cmd --permanent --add-service=http --add-service=https >/dev/null 2>&1 || true
+    firewall-cmd --reload >/dev/null 2>&1 || true
+elif command -v ufw >/dev/null 2>&1 && ufw status 2>/dev/null | grep -qw "active"; then
+    echo "Opening HTTP and HTTPS in ufw..."
+    ufw allow 80/tcp >/dev/null 2>&1 || true
+    ufw allow 443/tcp >/dev/null 2>&1 || true
+fi
+
 # 1. Проверка и генерация .env файла при его отсутствии
 if [ ! -f ".env" ]; then
     echo "⚙️  Файл .env не найден. Запуск генерации параметров..."
