@@ -147,7 +147,7 @@ def configure_3xui():
 
     if not db_path:
         db_path = "db/x-ui.db"
-        if not wait_for_db(db_path, max_wait=15):
+        if not wait_for_db(db_path, max_wait=30):
             print(f"[!] База {db_path} не найдена. Убедитесь, что контейнер 3x-ui запущен.")
             sys.exit(1)
 
