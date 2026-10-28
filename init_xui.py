@@ -223,18 +223,7 @@ def configure_3xui():
             cur.execute("INSERT INTO users (username, password) VALUES (?, ?)", (admin_user, admin_pass))
             con.commit()
 
-    # === START: [2026-10-28] Получение секрета панели и выпуск API-токена для мастер-панели ===
-    # Чтение или создание секрета панели (web secret / token secret)
-    cur.execute("SELECT value FROM settings WHERE key = 'secret'")
-    secret_row = cur.fetchone()
-    if secret_row and secret_row[0]:
-        panel_secret = secret_row[0]
-    else:
-        panel_secret = secrets.token_urlsafe(32)
-        set_setting(cur, "secret", panel_secret)
-        con.commit()
-        need_restart = True
-
+    # === START: [2026-10-28] Выпуск API-токена для мастер-панели ===
     # Чтение или генерация API токена для подключения к мастер-панели (External Node)
     api_token = get_config_val("XUI_API_TOKEN", None, env_vars)
     if not api_token or not api_token.strip():
@@ -477,8 +466,7 @@ def configure_3xui():
         f.write("# === Реквизиты панели управления 3X-UI ===\n")
         f.write(f"# Панель управления 3X-UI: {panel_url}\n")
         f.write(f"# Логин:                  {admin_user}\n")
-        f.write(f"# Пароль:                 {admin_pass}\n")
-        f.write(f"# Секрет панели (Secret): {panel_secret}\n\n")
+        f.write(f"# Пароль:                 {admin_pass}\n\n")
         f.write("# === Подключение ноды к мастер-панели (External Node / API) ===\n")
         f.write(f"# Адрес (Address):        {server_domain}\n")
         f.write(f"# Порт (Port):            443\n")
@@ -494,7 +482,6 @@ def configure_3xui():
     print(f"🔒 Панель 3X-UI:          {panel_url}")
     print(f"👤 Логин:                 {admin_user}")
     print(f"🔑 Пароль:                {admin_pass}")
-    print(f"🗝️  Секрет панели:         {panel_secret}")
     print("\n" + "-" * box_width)
     print("🛰️  ПОДКЛЮЧЕНИЕ К ОСНОВНОЙ ПАНЕЛИ (External Node / API):")
     print("-" * box_width)
