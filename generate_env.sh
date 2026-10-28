@@ -93,6 +93,12 @@ XUI_PASSWORD=$(LC_ALL=C tr -dc 'a-zA-Z0-9' </dev/urandom 2>/dev/null | head -c 1
 echo "✓ Логин 3X-UI: $XUI_USER"
 echo "✓ Пароль 3X-UI: $XUI_PASSWORD"
 
+# === START: [2026-10-28] Генерация API токена для подключения к мастер-панели ===
+# 6. API токен для подключения к мастер-панели (External Node / 3X-UI Bearer API, 48 символов)
+XUI_API_TOKEN=$(LC_ALL=C tr -dc 'a-zA-Z0-9' </dev/urandom 2>/dev/null | head -c 48 || openssl rand -hex 24)
+echo "✓ API токен 3X-UI: $XUI_API_TOKEN"
+# === END: [2026-10-28] Генерация API токена для подключения к мастер-панели ===
+
 # Запись в .env
 cat > "$ENV_FILE" <<EOF
 # ====================================================================
@@ -120,6 +126,11 @@ ACME_EMAIL=${ACME_EMAIL}
 # Учетные данные администратора панели 3X-UI
 XUI_USER=${XUI_USER}
 XUI_PASSWORD=${XUI_PASSWORD}
+
+# === START: [2026-10-28] API токен для мастер-панели ===
+# API токен для подключения к основной мастер-панели (External Node)
+XUI_API_TOKEN=${XUI_API_TOKEN}
+# === END: [2026-10-28] API токен для мастер-панели ===
 EOF
 
 chmod 600 "$ENV_FILE"
@@ -130,5 +141,6 @@ echo "   Путь панели:   https://${SERVER_DOMAIN}${XUI_PATH}"
 echo "   Путь подписки: https://${SERVER_DOMAIN}${SUB_PATH}<subId>"
 echo "   Логин:         ${XUI_USER}"
 echo "   Пароль:        ${XUI_PASSWORD}"
+echo "   API токен:     ${XUI_API_TOKEN}"
 echo "=========================================================="
 # # === END: [2026-10-28] Генерация параметров и создание файла .env ===

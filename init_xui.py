@@ -14,6 +14,8 @@ import secrets
 import sqlite3
 import subprocess
 import re
+import hashlib
+import string
 
 # === START: [2026-10-28] Автоматическая инициализация 3X-UI и создание VLESS-Reality ===
 
@@ -221,6 +223,50 @@ def configure_3xui():
             cur.execute("INSERT INTO users (username, password) VALUES (?, ?)", (admin_user, admin_pass))
             con.commit()
 
+    # === START: [2026-10-28] Получение секрета панели и выпуск API-токена для мастер-панели ===
+    # Чтение или создание секрета панели (web secret / token secret)
+    cur.execute("SELECT value FROM settings WHERE key = 'secret'")
+    secret_row = cur.fetchone()
+    if secret_row and secret_row[0]:
+        panel_secret = secret_row[0]
+    else:
+        panel_secret = secrets.token_urlsafe(32)
+        set_setting(cur, "secret", panel_secret)
+        con.commit()
+        need_restart = True
+
+    # Чтение или генерация API токена для подключения к мастер-панели (External Node)
+    api_token = get_config_val("XUI_API_TOKEN", None, env_vars)
+    if not api_token or not api_token.strip():
+        chars = string.ascii_letters + string.digits
+        api_token = "".join(secrets.choice(chars) for _ in range(48))
+        env_candidate = ".env" if os.path.isfile(".env") else ("/opt/sni-proxy/.env" if os.path.isfile("/opt/sni-proxy/.env") else None)
+        if env_candidate:
+            try:
+                with open(env_candidate, "a", encoding="utf-8") as f:
+                    f.write(f"\n# API токен для подключения к основной мастер-панели (External Node)\nXUI_API_TOKEN={api_token}\n")
+            except Exception:
+                pass
+
+    # Синхронизация токена с таблицей api_tokens в x-ui.db
+    token_hash = hashlib.sha256(api_token.encode("utf-8")).hexdigest()
+    cur.execute("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='api_tokens'")
+    if cur.fetchone()[0] > 0:
+        cur.execute("SELECT id, token FROM api_tokens WHERE name = ?", ("node-api",))
+        existing_tok = cur.fetchone()
+        now_ts = int(time.time())
+        if existing_tok:
+            if existing_tok[1] != token_hash:
+                cur.execute("UPDATE api_tokens SET token = ?, enabled = 1, scope = 'admin', expires_at = 0 WHERE id = ?", (token_hash, existing_tok[0]))
+                con.commit()
+        else:
+            cur.execute("""
+                INSERT INTO api_tokens (name, token, enabled, created_at, scope, expires_at)
+                VALUES (?, ?, 1, ?, 'admin', 0)
+            """, ("node-api", token_hash, now_ts))
+            con.commit()
+    # === END: [2026-10-28] Получение секрета панели и выпуск API-токена для мастер-панели ===
+
     # 2. Проверка и создание VLESS-Reality инбаунда
     inbound = cur.execute("SELECT id, settings, stream_settings, remark FROM inbounds WHERE port = 8443").fetchone()
     if not inbound:
@@ -264,6 +310,17 @@ def configure_3xui():
                 r_settings["target"] = reality_target
                 st_data["realitySettings"] = r_settings
                 inbound_dirty = True
+
+            # === START: [2026-10-28] Переключение uTLS fingerprint на firefox ===
+            current_fp = r_settings.get("settings", {}).get("fingerprint")
+            if current_fp != "firefox":
+                print(f"[*] Обновление uTLS fingerprint на: firefox (было: {current_fp})")
+                if "settings" not in r_settings:
+                    r_settings["settings"] = {}
+                r_settings["settings"]["fingerprint"] = "firefox"
+                st_data["realitySettings"] = r_settings
+                inbound_dirty = True
+            # === END: [2026-10-28] Переключение uTLS fingerprint на firefox ===
 
             # Обеспечиваем externalProxy для корректной генерации порта 443 в подписках
             ext_proxies = st_data.get("externalProxy", [])
@@ -345,7 +402,7 @@ def configure_3xui():
                 "shortIds": [short_id],
                 "settings": {
                     "publicKey": pub_key,
-                    "fingerprint": "chrome",
+                    "fingerprint": "firefox",
                     "serverName": "",
                     "spiderX": "/"
                 }
@@ -405,7 +462,7 @@ def configure_3xui():
     vless_link = (
         f"vless://{client_uuid}@{server_domain}:443"
         f"?security=reality&encryption=none&pbk={public_key}&headerType=none"
-        f"&fp=chrome&type=tcp&flow={flow}&sni={reality_sni}&sid={short_id}&spx=%2F#{node_name}"
+        f"&fp=firefox&type=tcp&flow={flow}&sni={reality_sni}&sid={short_id}&spx=%2F#{node_name}"
     )
 
     sub_link = f"https://{server_domain}{sub_path}{sub_id}"
@@ -413,29 +470,44 @@ def configure_3xui():
 
     # Сохраняем в файл client_vless.txt
     with open("client_vless.txt", "w", encoding="utf-8") as f:
-        f.write("# === Готовая ссылка подключения VLESS Reality ===\n")
+        f.write("# === Готовая ссылка подключения VLESS Reality (uTLS Firefox) ===\n")
         f.write(vless_link + "\n\n")
         f.write("# === Ссылка подписки (Subscription URL) ===\n")
         f.write(sub_link + "\n\n")
+        f.write("# === Реквизиты панели управления 3X-UI ===\n")
         f.write(f"# Панель управления 3X-UI: {panel_url}\n")
-        f.write(f"# Логин: {admin_user}\n")
-        f.write(f"# Пароль: {admin_pass}\n")
+        f.write(f"# Логин:                  {admin_user}\n")
+        f.write(f"# Пароль:                 {admin_pass}\n")
+        f.write(f"# Секрет панели (Secret): {panel_secret}\n\n")
+        f.write("# === Подключение ноды к мастер-панели (External Node / API) ===\n")
+        f.write(f"# Адрес (Address):        {server_domain}\n")
+        f.write(f"# Порт (Port):            443\n")
+        f.write(f"# Базовый путь (BasePath):{xui_path}\n")
+        f.write(f"# API Токен (ApiToken):   {api_token}\n")
 
     # Красивый вывод в терминал
     box_width = 80
     print("\n" + "=" * box_width)
     print("🎉 КОМПЛЕКС УСПЕШНО РАЗВЕРНУТ И НАСТРОЕН!".center(box_width))
     print("=" * box_width)
-    print(f"\n🌐 Сайт-маскировка: https://{server_domain}")
-    print(f"🔒 Панель 3X-UI:    {panel_url}")
-    print(f"👤 Логин:           {admin_user}")
-    print(f"🔑 Пароль:          {admin_pass}")
+    print(f"\n🌐 Сайт-маскировка:       https://{server_domain}")
+    print(f"🔒 Панель 3X-UI:          {panel_url}")
+    print(f"👤 Логин:                 {admin_user}")
+    print(f"🔑 Пароль:                {admin_pass}")
+    print(f"🗝️  Секрет панели:         {panel_secret}")
+    print("\n" + "-" * box_width)
+    print("🛰️  ПОДКЛЮЧЕНИЕ К ОСНОВНОЙ ПАНЕЛИ (External Node / API):")
+    print("-" * box_width)
+    print(f"🌐 Адрес (Address):       {server_domain}")
+    print(f"🔌 Порт (Port):           443")
+    print(f"📂 Путь (BasePath):       {xui_path}")
+    print(f"🔑 API Токен (ApiToken):  {api_token}")
     print("\n" + "-" * box_width)
     print("📡 ССЫЛКА НА ПОДПИСКУ (Рекомендуется для Happ, Streisand, v2rayNG, Hiddify):")
     print("-" * box_width)
     print(f"\n{sub_link}\n")
     print("-" * box_width)
-    print("🚀 ПРЯМАЯ ССЫЛКА ДЛЯ КЛИЕНТА (VLESS Reality):")
+    print("🚀 ПРЯМАЯ ССЫЛКА ДЛЯ КЛИЕНТА (VLESS Reality, uTLS Firefox):")
     print("-" * box_width)
     print(f"\n{vless_link}\n")
     print("-" * box_width)
