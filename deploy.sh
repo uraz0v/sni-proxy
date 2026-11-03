@@ -52,6 +52,7 @@ fi
 echo "Setting system timezone to Asia/Yekaterinburg..."
 timedatectl set-timezone Asia/Yekaterinburg 2>/dev/null || echo "Failed to set timezone. Ignoring."
 
+# === START: [2026-11-03] Установка Docker, kernel-modules-extra и валидация готовности демона ===
 echo "Installing Docker if not present..."
 if ! docker compose version >/dev/null 2>&1; then
     if command -v dnf >/dev/null 2>&1 || command -v yum >/dev/null 2>&1; then
@@ -59,9 +60,9 @@ if ! docker compose version >/dev/null 2>&1; then
         rpm --import https://download.docker.com/linux/centos/gpg 2>/dev/null || true
         curl -fsSL https://download.docker.com/linux/centos/docker-ce.repo -o /etc/yum.repos.d/docker-ce.repo
         if command -v dnf >/dev/null 2>&1; then
-            dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+            dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin kernel-modules-extra
         else
-            yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+            yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin kernel-modules-extra
         fi
         systemctl enable --now docker 2>/dev/null || true
     else
@@ -69,6 +70,33 @@ if ! docker compose version >/dev/null 2>&1; then
         systemctl enable --now docker 2>/dev/null || true
     fi
 fi
+
+# Проверка запуска и готовности Docker-демона
+echo "Checking Docker daemon status..."
+if ! docker info >/dev/null 2>&1; then
+    echo "Attempting to start docker service..."
+    systemctl restart docker 2>/dev/null || true
+    sleep 2
+fi
+
+if ! docker info >/dev/null 2>&1; then
+    echo "⚠️  Docker daemon is not running!"
+    # Диагностика несовпадения версий ядра в RHEL/AlmaLinux при установке пакетов
+    if command -v dnf >/dev/null 2>&1; then
+        LATEST_KERNEL=$(rpm -q --last kernel-core 2>/dev/null | head -n1 | awk '{print $1}' | sed 's/kernel-core-//')
+        CURRENT_KERNEL=$(uname -r)
+        if [ -n "$LATEST_KERNEL" ] && [ "$LATEST_KERNEL" != "$CURRENT_KERNEL" ]; then
+            echo "❌ Внимание: Было установлено новое ядро ($LATEST_KERNEL), но активно старое ($CURRENT_KERNEL)."
+            echo "   Для корректной работы сетевого стека Docker (xt_addrtype / nft_compat) необходима перезагрузка."
+            echo "   Выполните: reboot, а затем повторно запустите ./deploy.sh"
+            exit 1
+        fi
+    fi
+    echo "❌ Ошибка: Не удалось запустить Docker daemon. Проверьте: systemctl status docker"
+    exit 1
+fi
+echo "✓ Docker daemon is active and running."
+# === END: [2026-11-03] Установка Docker, kernel-modules-extra и валидация готовности демона ===
 
 echo "Updating lists..."
 bash update_lists.sh
