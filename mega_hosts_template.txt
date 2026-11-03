@@ -29,9 +29,9 @@
 0.0.0.0 ads.viqeo.tv
 0.0.0.0 ads.vk.ru
 0.0.0.0 ads.wildberries.ru
+0.0.0.0 ads.yandex
 0.0.0.0 ads.yandex.com
 0.0.0.0 ads.yandex.ru
-0.0.0.0 ads.yandex
 0.0.0.0 ads.yango.com
 0.0.0.0 ads.youtube.com
 0.0.0.0 adsadvisor.io
@@ -167,6 +167,7 @@
 0.0.0.0 r0.mradx.net
 0.0.0.0 r1.mail.ru
 0.0.0.0 radar.imgsmail.ru
+0.0.0.0 reef.vk-cdn.net
 0.0.0.0 reklama.mail.ru
 0.0.0.0 relap.mail.ru
 0.0.0.0 report.ap.yandex-net.ru
@@ -210,9 +211,9 @@
 0.0.0.0 webvisor.org
 0.0.0.0 whiteline.mail.ru
 0.0.0.0 xapi.ozon.by
+0.0.0.0 xapi.ozon.com
 0.0.0.0 xapi.ozon.com.by
 0.0.0.0 xapi.ozon.com.kz
-0.0.0.0 xapi.ozon.com
 0.0.0.0 xapi.ozon.kz
 0.0.0.0 xapi.ozon.ru
 0.0.0.0 xapi.ozonru.me
@@ -222,7 +223,6 @@
 0.0.0.0 yandex-metrica.ru
 0.0.0.0 yandexmetrica.com
 0.0.0.0 yango-ads.com
-0.0.0.0 reef.vk-cdn.net
 
 # ==============================
 # ПРОКСИРОВАНИЕ СЕРВИСОВ (GeoHide)
